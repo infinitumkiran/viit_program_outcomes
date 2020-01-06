@@ -1,263 +1,144 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:viitproject/slide1.dart';
 import 'package:viitproject/widgets/appbar.dart';
+import 'package:viitproject/widgets/Button.dart';
+import 'PO/po.dart';
 
-class PageThree extends StatefulWidget
-{
+
+class PageThree extends StatefulWidget {
   @override
   _PageThreeState createState() => _PageThreeState();
 }
 
-class _PageThreeState extends State<PageThree> {
+class _PageThreeState extends State<PageThree>{
 
 
-  var sliderValue = 0.0;
-  var sliderValue1 = 0.0;
-  var sliderValue2 = 0.0;
-  var sliderValue3= 0.0;
-  var sliderValue4 = 0.0;
-  var sliderValue5 = 0.0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: Container(
-        color: Color(0xffE5E5E5),
-        child: Column(
-          children: <Widget>[
-            Container(
-
-              padding:  EdgeInsets.fromLTRB(0,10,0,0),
-              child: Container(
-                  child: Text("0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
-                    style: TextStyle(color: Colors.blue, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-            ),
-            SizedBox(height:30.0),
-            Container(
-              child: Align(
-                child: Material(
-                  color: Colors.white,
-                  elevation: 14.0,
-                  borderRadius: BorderRadius.circular(24.0),
-                  shadowColor: Color(0x802196F3),
-                  child: Container(
-                      width: 1400.0,
-                      height: 600.0,
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0,10,0,0),
-                            child:Text('PROGRAM OUTCOMES',style: TextStyle(fontSize: 30,color: Colors.indigo)),
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.all(10),
-                                child: Text('      Understand the impact of Computer Science and Engineering solutions on society & ecofriendly'
-                                    '\n      environment and the need for sustainable development.(Environment and sustainability)',style: TextStyle(fontSize: 23),),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(20, 10, 0, 0),
-                                child: Slider(
-                                  min: 0.0,
-                                  max: 3.0,
-                                  divisions: 3,
-                                  value: sliderValue,
-                                  activeColor: Colors.blue,
-                                  inactiveColor: Colors.blueGrey,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      sliderValue = newValue;
+  int rating=0;
+  List<double> sliderValues = [0, 0, 0, 0, 0, 0];
 
 
-                                    });
-                                  },
-                                ),),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                child: Container(child: Text("$sliderValue",
-                                  style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                              ),
-                            ],
-                          ),
+    final List<PO> tripsList = [
+      PO("Apply knowledge of Mathematics, Science, Computer Science and Engineering to solve the real-world problems of core and allied engineering disciplines. (Engineering knowledge)"),
+      PO("Identify, formulate, survey literature and analyze Computer Science and Engineering problems and arrive at suitable conclusions. (Problem analysis)"),
+      PO("Design / Develop solutions for Computer Science & Engineering problems with due consideration for public health & safety, cultural, societal and environmental concerns. (Design/development of solutions)"),
+      PO("Conduct investigations on complex Computer Science & Engineering problems using various research methods including design of experiments, analysis and interpretation of data and synthesis of information to arrive at valid conclusions. (Conduct investigations of complex problems)"),
+      PO("Use appropriate techniques, resources,  modern engineering and CSE tools to model and simulate complex Computer Science and Engineering  systems with an understanding of  their limitations .(Modern tool usage)."),
+      PO("Assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to Computer Science and Engineering practices. ( The engineer and society)"),
 
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                child: Text('        Follow Professional ethics and commit to responsibilities & norms of the engineering'
-                                    '\n        practices. (Ethics)',style: TextStyle(fontSize: 23),),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                child: Slider(
-                                  min: 0.0,
-                                  max: 3.0,
-                                  divisions: 3,
-                                  value: sliderValue1,
-                                  activeColor: Colors.blue,
-                                  inactiveColor: Colors.blueGrey,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      sliderValue1 = newValue;
+    ];
 
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
 
-                                    });
-                                  },
-                                ),),
-                              Padding(
-                                padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(child: Text("$sliderValue1",
-                                  style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                              ),
-                            ],
-                          ),
+      appBar:buildAppBar(),
+      body:
+      Container(
+      color: Color(0xffE5E5E5),
+//      child: Column(
+      child: ListView(
+      children: <Widget>[
+      Container(
 
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                child: Text('        Contribute effectively as an individual, member or leader of intra and inter-disciplinary'
-                                    '\n        teams/working environment.(Individual and team work)',style: TextStyle(fontSize: 23),),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Slider(
-                                  min: 0.0,
-                                  max: 3.0,
-                                  divisions: 3,
-                                  value: sliderValue2,
-                                  activeColor: Colors.blue,
-                                  inactiveColor: Colors.blueGrey,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      sliderValue2 = newValue;
+      padding:  EdgeInsets.fromLTRB(0,10,0,0),
+      child: Center(
 
-
-                                    });
-                                  },
-                                ),),
-                              Padding(
-                                padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(child: Text("$sliderValue2",
-                                  style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                child: Text('        Communicate effectively both in verbal and written forms with engineers/technocrats in particular'
-                                    '\n         and with society at large and give/receive clear instructions. (Communication)',style: TextStyle(fontSize: 23),),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                child: Slider(
-                                  min: 0.0,
-                                  max: 3.0,
-                                  divisions: 3,
-                                  value: sliderValue3,
-                                  activeColor: Colors.blue,
-                                  inactiveColor: Colors.blueGrey,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      sliderValue3 = newValue;
-
-
-                                    });
-                                  },
-                                ),),
-                              Padding(
-                                padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(child: Text("$sliderValue3",
-                                  style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                child: Text('        Apply the principles of engineering and management as a member or leader to'
-                                    '\n        manage projects in multidisciplinary environment. (Project management and finance)',style: TextStyle(fontSize: 23),),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                child: Slider(
-                                  min: 0.0,
-                                  max: 3.0,
-                                  divisions: 3,
-                                  value: sliderValue4,
-                                  activeColor: Colors.blue,
-                                  inactiveColor: Colors.blueGrey,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      sliderValue4 = newValue;
-
-
-                                    });
-                                  },
-                                ),),
-                              Padding(
-                                padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(child: Text("$sliderValue4",
-                                  style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                child: Text('        Recognize the necessity and pursue independent & life-long learning to keep abreast'
-                                    '\n        of technological changes. (Life-long learning).',style: TextStyle(fontSize: 23),),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                child: Slider(
-                                  min: 0.0,
-                                  max: 3.0,
-                                  divisions: 3,
-                                  value: sliderValue5,
-                                  activeColor: Colors.blue,
-                                  inactiveColor: Colors.blueGrey,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      sliderValue5 = newValue;
-
-
-                                    });
-                                  },
-                                ),),
-                              Padding(
-                                padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(child: Text("$sliderValue5",
-                                  style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(1100, 0, 0, 0),
-                            child: Container(child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: RaisedButton(child: Text("Next"),
-                                onPressed: () {
-                                  // Navigate to the second screen using a named route.
-                                  Navigator.pushReplacementNamed(context, '/fourth');
-                                },
-                                color: Colors.blue[500],
-                                textColor: Colors.white,
-                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                splashColor: Colors.grey,
-                              ),
-                            )),
-                          ),
-                        ],)
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+      child: Text("0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
+      style: TextStyle(color: Colors.indigo, fontSize: 22.0,fontWeight:FontWeight.bold),)),
       ),
-    );
+      SizedBox(height:30.0),
+      Card(
+        margin:EdgeInsets.symmetric(horizontal: 30) ,
+      color: Colors.white,
+
+      child: Container(
+      width: 1400.0,
+      height: 600.0,
+      child: Column(
+      children: <Widget>[
+      Container(
+      margin: EdgeInsets.fromLTRB(0,10,0,0),
+      child:Text('PROGRAM OUTCOMES',style: TextStyle(fontSize: 30,color: Colors.indigo)),
+      ),
+      Expanded(
+        child: new ListView.builder(
+            itemCount: tripsList.length,
+            itemBuilder: (BuildContext context, int index) =>
+                buildPO(context, index)),
+      ),
+        Container(
+          child: Button(onPressed:() {
+            // Navigate to the second screen using a named route.
+            Navigator.pushReplacementNamed(context, '/fourth');},),
+        ),
+
+
+      ]
+      )
+      ),
+
+      ),
+        ],
+      ),
+      ),
+      );
+    }
+
+    Widget buildPO(BuildContext context, int index) {
+
+      final trip = tripsList[index];
+      return new Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+
+                  child:
+                    Text(
+                      trip.title,
+                      style: new TextStyle(fontSize: 20.0),
+                      maxLines: 3,
+                    ),
+
+                    //Spacer(),
+
+                ),
+
+                      Slider(
+                        min: 0.0,
+                        max: 3.0,
+                        divisions: 3,
+                        value: sliderValues[index].toDouble(),
+                        activeColor: Colors.indigo,
+                        inactiveColor: Colors.blueGrey,
+
+                        onChanged: (newValue) {
+                          setState(() {
+                            sliderValues[index] = newValue.toDouble();
+
+                          });
+                        },
+                      ),
+                Container(child:
+                  Text("${sliderValues[index]}",
+                    style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
+
+
+
+
+
+
+              ],
+            ),
+          ),
+        ),
+      );
+    }
 
   }
-}
+
+
+

@@ -20,10 +20,10 @@ class _HomePoState extends State<HomePo>{
     final List<PO> tripsList = [
       PO("Apply knowledge of Mathematics, Science, Computer Science and Engineering to solve the real-world problems of core and allied engineering disciplines. (Engineering knowledge)"),
       PO("Identify, formulate, survey literature and analyze Computer Science and Engineering problems and arrive at suitable conclusions. (Problem analysis)"),
-      PO("Program_outcome"),
-      PO("Program_outcome"),
-      PO("Program_outcome"),
-      PO("Program_outcome"),
+      PO("Design / Develop solutions for Computer Science & Engineering problems with due consideration for public health & safety, cultural, societal and environmental concerns. (Design/development of solutions)"),
+      PO("Conduct investigations on complex Computer Science & Engineering problems using various research methods including design of experiments, analysis and interpretation of data and synthesis of information to arrive at valid conclusions. (Conduct investigations of complex problems)"),
+      PO("Use appropriate techniques, resources,  modern engineering and CSE tools to model and simulate complex Computer Science and Engineering  systems with an understanding of  their limitations .(Modern tool usage)."),
+      PO("Assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to Computer Science and Engineering practices. ( The engineer and society)"),
 
     ];
 
@@ -84,25 +84,22 @@ class _HomePoState extends State<HomePo>{
         margin: EdgeInsets.symmetric(horizontal: 20),
         child: Card(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
+            padding: const EdgeInsets.all(40.0),
+            child: Row(
               children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+                Expanded(
+
                   child:
                     Text(
                       trip.title,
-                      style: new TextStyle(fontSize: 30.0),
+                      style: new TextStyle(fontSize: 20.0),
                       maxLines: 3,
                     ),
 
                     //Spacer(),
 
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                  child: Row(
-                    children: <Widget>[
+
                       Slider(
                         min: 0.0,
                         max: 3.0,
@@ -118,17 +115,15 @@ class _HomePoState extends State<HomePo>{
                           });
                         },
                       ),
+                Container(child:
+                  Text("${sliderValues[index]}",
+                    style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
 
-                      Padding(
-                        padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Container(child:
-                        Text("${sliderValues[index]}",
-                          style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-                      ),
-                      Spacer(),
-                    ],
-                  ),
-                )
+
+
+
+
+
               ],
             ),
           ),

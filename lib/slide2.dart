@@ -47,7 +47,7 @@ class _PageTwoState extends State<PageTwo> {
                   child:Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Button(onPressed:() {
+                      Button(title:'Back',onPressed:() {
                         // Navigate to the second screen using a named route.
                         Navigator.pushReplacementNamed(context, '/');
                       }
@@ -55,7 +55,7 @@ class _PageTwoState extends State<PageTwo> {
                       SizedBox(
                         width: 100.0,
                       ),
-                      Button(onPressed:() {
+                      Button(title:'Next',onPressed:() {
                         // Navigate to the second screen using a named route.
                         Navigator.pushReplacementNamed(context, '/third');
                       }

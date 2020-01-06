@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 
-import 'widgets/Button.dart';
+import 'package:viitproject/widgets/Button.dart';
 
 
 
@@ -100,15 +100,20 @@ class _PageOneState extends State<PageOne> {
 
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.all(30.0),
-                  child:Button(onPressed:() {
-                    // Navigate to the second screen using a named route.
-                    if(PageOne.selectedNum!=null)
-                      Navigator.pushReplacementNamed(context, '/second');
-                  }
-                    ,),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.all(30.0),
+                      child:Button(title:'Next',onPressed:() {
+                        // Navigate to the second screen using a named route.
+                        if(PageOne.selectedNum!=null)
+                          Navigator.pushReplacementNamed(context, '/second');
+                      }
+                        ,),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

@@ -61,10 +61,16 @@ class _PageFiveState extends State<PageFive>{
                               itemBuilder: (BuildContext context, int index) =>
                                   buildPO(context, index)),
                         ),
-                        Container(
-                          child: Button(onPressed:() {
-                            // Navigate to the second screen using a named route.
-                            Navigator.pushReplacementNamed(context, '/sixth');},),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Button(title:'Next',onPressed:() {
+                                // Navigate to the second screen using a named route.
+                                Navigator.pushReplacementNamed(context, '/sixth');},),
+                            ),
+                          ],
                         ),
 
 
@@ -134,6 +140,4 @@ class _PageFiveState extends State<PageFive>{
   }
 
 }
-
-
 

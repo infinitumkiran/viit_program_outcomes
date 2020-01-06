@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:viitproject/slide1.dart';
 import 'package:viitproject/slide2.dart';

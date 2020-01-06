@@ -66,10 +66,16 @@ class _PageFourState extends State<PageFour>{
                               itemBuilder: (BuildContext context, int index) =>
                                   buildPO(context, index)),
                         ),
-                        Container(
-                          child: Button(onPressed:() {
-                            // Navigate to the second screen using a named route.
-                            Navigator.pushReplacementNamed(context, '/fifth');},),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Button(title:'Next',onPressed:() {
+                                // Navigate to the second screen using a named route.
+                                Navigator.pushReplacementNamed(context, '/fifth');},),
+                            ),
+                          ],
                         ),
 
 

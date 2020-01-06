@@ -89,7 +89,7 @@ class _PageFourState extends State<PageFour>{
     final trip = tripsList[index];
     return new Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
-      child: Card(
+      child: Container(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(

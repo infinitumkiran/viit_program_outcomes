@@ -4,10 +4,17 @@ import 'package:viitproject/widgets/appbar.dart';
 import 'widgets/Button.dart';
 
 
+
 class PageOne extends StatefulWidget
 {
+  static String selectedNum;
   @override
   _PageOneState createState() => _PageOneState();
+
+  String getIndex()
+  {
+    return selectedNum.toString();
+  }
 }
 
 class _PageOneState extends State<PageOne> {
@@ -26,84 +33,86 @@ class _PageOneState extends State<PageOne> {
     {"id": 11, "name": "18L31A05S1"},
     {"id": 12, "name": "18L31A05S2"},
     {"id": 13, "name": "18L31A05S3"}
-  ]; // Option 2
-  String _selectedNumber; // Option 2
+  ];
+  // String selectedNumber = PageOne.selectedNum;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    PageOne.selectedNum=null;
+  }// Option 2
   @override
   Widget build(BuildContext context) {
     final _height=  MediaQuery.of(context).size.height;
     final _width= MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: buildAppBar(),
-      body:
-
-
-      Container(
-
-
-        margin: EdgeInsets.all(200.0),
-        child: SizedBox(
-
-          height: 300.0,
-          width: double.infinity,
-
-          child:Card(
-
-            borderOnForeground: true,
-
-            color: Colors.yellow[100],
+        appBar: buildAppBar(),
+        body: Center(
+          child: Container(
+            height: 0.5*_height,
+            width: 0.5*_width,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.indigo[300],
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(25),
+            ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.fromLTRB(10.0, 40.0, 0.0,0.0),
 
                   child: Text('Choose Your Registration Number',
-                    style: TextStyle(color:Colors.indigo,fontSize: 25.0),),
-
-
+                    style: TextStyle(fontSize: 20.0,
+                        decoration: TextDecoration.underline,
+                        color:Colors.indigo ),),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 40.0),
+                    width: 240.0,
+                    height: 40.0,
+                    decoration: BoxDecoration(
+                        color:Colors.white,
+                        borderRadius: BorderRadius.circular(10.0),
+                        border: Border.all(color: Colors.blueGrey)),
+                    child: DropdownButton(
+                      focusColor: Colors.blue,
+                      hint: Text('Select a registration number'), // Not necessary for Option 1
+                      value: PageOne.selectedNum,
+                      onChanged: (newValue) {
+                        setState(() {
+                          PageOne.selectedNum = newValue;
+                        });
+                      },
+                      items: _regNumbers.map((Map map) {
+                        return new DropdownMenuItem<String>(
+                          value: map["id"].toString(),
+                          child: new Text(
+                            map["name"],
+                          ),
+                        );
+                      }).toList(),
+                    ),
 
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 30,0,0),
-                  width: 240.0,
-                  height: 40.0,
-                  decoration: BoxDecoration(
-                      color:Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(color: Colors.black)),
-                  child: DropdownButton(
-                    focusColor: Colors.blue,
-                    hint: Text('Select a registration number'), // Not necessary for Option 1
-                    value: _selectedNumber,
-                    onChanged: (newValue) {
-                      setState(() {
-                        _selectedNumber = newValue;
-                      });
-                    },
-                    items: _regNumbers.map((Map map) {
-                      return new DropdownMenuItem<String>(
-                        value: map["id"].toString(),
-                        child: new Text(
-                          map["name"],
-                        ),
-                      );
-                    }).toList(),
                   ),
-
                 ),
                 Container(
-
-                  margin: EdgeInsets.fromLTRB(550, 90, 0, 0),
+                  margin: EdgeInsets.all(30.0),
                   child:Button(onPressed:() {
                     // Navigate to the second screen using a named route.
-                    Navigator.pushReplacementNamed(context, '/third');},),
+                    if(PageOne.selectedNum!=null)
+                      Navigator.pushReplacementNamed(context, '/second');
+                  }
+                    ,),
                 ),
               ],
             ),
           ),
-
-        ),
-      ),
-
+        )
     );
   }
 

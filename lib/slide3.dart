@@ -52,6 +52,7 @@ class _PageThreeState extends State<PageThree>{
       color: Colors.white,
 
       child: Container(
+
       width: 1400.0,
       height: 600.0,
       child: Column(
@@ -89,7 +90,7 @@ class _PageThreeState extends State<PageThree>{
       final trip = tripsList[index];
       return new Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
-        child: Card(
+        child: Container(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(

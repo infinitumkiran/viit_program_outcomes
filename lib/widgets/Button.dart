@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
       color: Colors.indigo,
       textColor: Colors.white,
       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      splashColor: Colors.grey,
+      splashColor: Colors.blueGrey
     );
   }
 }

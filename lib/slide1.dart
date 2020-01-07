@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
-
 import 'package:viitproject/widgets/Button.dart';
-
-
 
 class PageOne extends StatefulWidget
 {
@@ -46,6 +43,8 @@ class _PageOneState extends State<PageOne> {
   Widget build(BuildContext context) {
     final _height=  MediaQuery.of(context).size.height;
     final _width= MediaQuery.of(context).size.height;
+    print(_height);
+    print(_width);
     return Scaffold(
         appBar: buildAppBar(),
         body: Center(
@@ -86,11 +85,13 @@ class _PageOneState extends State<PageOne> {
                       value: PageOne.selectedNum,
                       onChanged: (newValue) {
                         setState(() {
+
                           PageOne.selectedNum = newValue;
                         });
                       },
                       items: _regNumbers.map((Map map) {
                         return new DropdownMenuItem<String>(
+
                           value: map["id"].toString(),
                           child: new Text(
                             map["name"],

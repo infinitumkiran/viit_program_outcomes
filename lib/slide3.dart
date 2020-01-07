@@ -50,8 +50,8 @@ class _PageThreeState extends State<PageThree>{
 
 
                Container(
-                  width: 1400.0,
-                  height: 600.0,
+                  width: _width*1.85577937,
+                  height: _height*0.795334015,
 
                    margin:EdgeInsets.symmetric(horizontal: 30) ,
 
@@ -81,7 +81,7 @@ class _PageThreeState extends State<PageThree>{
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
                                 // Navigate to the second screen using a named route.
                                 Navigator.pushReplacementNamed(context, '/fourth');},),

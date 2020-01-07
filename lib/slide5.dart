@@ -24,6 +24,8 @@ class _PageFiveState extends State<PageFive>{
 
   @override
   Widget build(BuildContext context) {
+    final _height=  MediaQuery.of(context).size.height;
+    final _width= MediaQuery.of(context).size.height;
     return Scaffold(
 
       appBar:buildAppBar(),
@@ -46,8 +48,9 @@ class _PageFiveState extends State<PageFive>{
 
               Container(
 
-                  width: 1400.0,
-                  height: 600.0,
+                  width: _width*1.85577937,
+                  height: _height*0.795334015,
+
                   margin:EdgeInsets.symmetric(horizontal: 30) ,
 
                   decoration: BoxDecoration(
@@ -75,7 +78,7 @@ class _PageFiveState extends State<PageFive>{
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
                                 // Navigate to the second screen using a named route.
                                 Navigator.pushReplacementNamed(context, '/sixth');},),

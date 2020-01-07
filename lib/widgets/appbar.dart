@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 AppBar buildAppBar(){
   return AppBar(
+
     backgroundColor: Colors.indigo[400],
     centerTitle: true,
     title: Row(

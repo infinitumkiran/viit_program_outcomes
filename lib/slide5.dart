@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
-
+import 'package:viitproject/widgets/Bullet.dart';
 
 class PageFive extends StatefulWidget {
   @override
@@ -95,6 +95,13 @@ class _PageFiveState extends State<PageFive>{
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: <Widget>[
+              Container
+                (
+                  child:new MyBullet()
+              ),
+              Container(
+                child: Text('   '),
+              ),
               Expanded(
 
                 child:
@@ -115,7 +122,7 @@ class _PageFiveState extends State<PageFive>{
                 value: sliderValues[index].toDouble(),
                 activeColor: Colors.indigo,
                 inactiveColor: Colors.blueGrey,
-
+                label: sliderValues[index].toString(),
                 onChanged: (newValue) {
                   setState(() {
                     sliderValues[index] = newValue.toDouble();
@@ -139,5 +146,21 @@ class _PageFiveState extends State<PageFive>{
     );
   }
 
+}
+class MyBullet extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    final _height=  MediaQuery.of(context).size.height;
+    final _width= MediaQuery.of(context).size.height;
+    return new Container(
+      height: _height*0.025,
+      width: _width*0.025,
+      decoration: new BoxDecoration(
+        color: Colors.indigo,
+        shape: BoxShape.circle,
+
+      ),
+    );
+  }
 }
 

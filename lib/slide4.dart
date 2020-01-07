@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
-
+import 'package:viitproject/widgets/Bullet.dart';
 
 class PageFour extends StatefulWidget {
   @override
@@ -100,6 +100,13 @@ class _PageFourState extends State<PageFour>{
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: <Widget>[
+              Container
+                (
+                  child:new MyBullet()
+              ),
+              Container(
+                child: Text('   '),
+              ),
               Expanded(
 
                 child:
@@ -120,7 +127,7 @@ class _PageFourState extends State<PageFour>{
                 value: sliderValues[index].toDouble(),
                 activeColor: Colors.indigo,
                 inactiveColor: Colors.blueGrey,
-
+                label: sliderValues[index].toString(),
                 onChanged: (newValue) {
                   setState(() {
                     sliderValues[index] = newValue.toDouble();

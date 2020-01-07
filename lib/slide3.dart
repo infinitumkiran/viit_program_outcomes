@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
+import 'package:viitproject/widgets/Bullet.dart';
 
 class PageThree extends StatefulWidget {
   @override
@@ -10,7 +11,6 @@ class PageThree extends StatefulWidget {
 }
 
 class _PageThreeState extends State<PageThree>{
-
 
   int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
@@ -27,6 +27,8 @@ class _PageThreeState extends State<PageThree>{
 
   @override
   Widget build(BuildContext context) {
+    final _height=  MediaQuery.of(context).size.height;
+    final _width= MediaQuery.of(context).size.height;
     return Scaffold(
 
       appBar:buildAppBar(),
@@ -98,10 +100,18 @@ class _PageThreeState extends State<PageThree>{
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: <Widget>[
+              Container
+                (
+                  child:new MyBullet()
+              ),
+              Container(
+                child: Text('   '),
+              ),
               Expanded(
 
                 child:
                 Text(
+
                   trip.title,
                   style: new TextStyle(fontSize: 20.0),
                   maxLines: 3,
@@ -115,6 +125,7 @@ class _PageThreeState extends State<PageThree>{
                 min: 0.0,
                 max: 3.0,
                 divisions: 3,
+                label: sliderValues[index].toString(),
                 value: sliderValues[index].toDouble(),
                 activeColor: Colors.indigo,
                 inactiveColor: Colors.blueGrey,
@@ -129,11 +140,6 @@ class _PageThreeState extends State<PageThree>{
               Container(child:
               Text("${sliderValues[index]}",
                 style: TextStyle(color: Colors.black, fontSize: 22.0,fontWeight:FontWeight.bold),)),
-
-
-
-
-
 
             ],
           ),

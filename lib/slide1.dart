@@ -7,7 +7,7 @@ import 'package:viitproject/widgets/Button.dart';
 
 class PageOne extends StatefulWidget
 {
-  static String selectedNum;
+  static String selectedNum='0';
   @override
   _PageOneState createState() => _PageOneState();
 
@@ -34,6 +34,7 @@ class _PageOneState extends State<PageOne> {
     {"id": 12, "name": "18L31A05S2"},
     {"id": 13, "name": "18L31A05S3"}
   ];
+
   // String selectedNumber = PageOne.selectedNum;
   @override
   void initState() {
@@ -78,7 +79,7 @@ class _PageOneState extends State<PageOne> {
                     decoration: BoxDecoration(
                         color:Colors.white,
                         borderRadius: BorderRadius.circular(10.0),
-                        border: Border.all(color: Colors.blueGrey)),
+                        border: Border.all(color: Colors.indigo)),
                     child: DropdownButton(
                       focusColor: Colors.blue,
                       hint: Text('Select a registration number'), // Not necessary for Option 1

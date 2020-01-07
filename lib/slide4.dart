@@ -47,18 +47,27 @@ class _PageFourState extends State<PageFour>{
                     style: TextStyle(color: Colors.indigo, fontSize: 22.0,fontWeight:FontWeight.bold),)),
             ),
             SizedBox(height:30.0),
-            Card(
-              margin:EdgeInsets.symmetric(horizontal: 30) ,
-              color: Colors.white,
 
-              child: Container(
+
+               Container(
                   width: 1400.0,
                   height: 600.0,
+                  margin:EdgeInsets.symmetric(horizontal: 30) ,
+
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.indigo[300],
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(25),
+                    color: Colors.white,
+                  ),
                   child: Column(
+
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.fromLTRB(0,10,0,0),
-                          child:Text('PROGRAM OUTCOMES',style: TextStyle(fontSize: 30,color: Colors.indigo)),
+                          child:Text('PROGRAM OUTCOMES',style: TextStyle(fontSize: 30,color: Colors.indigo,decoration: TextDecoration.underline,)),
                         ),
                         Expanded(
                           child: new ListView.builder(
@@ -83,7 +92,7 @@ class _PageFourState extends State<PageFour>{
                   )
               ),
 
-            ),
+
           ],
         ),
       ),
@@ -112,7 +121,7 @@ class _PageFourState extends State<PageFour>{
                 child:
                 Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 20.0),
+                  style: new TextStyle(fontSize: 22.0),
                   maxLines: 3,
                 ),
 

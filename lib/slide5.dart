@@ -15,8 +15,7 @@ class _PageFiveState extends State<PageFive>{
 
   int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
-  String abc;
-  
+
 
 
   final List<PO> tripsList = [

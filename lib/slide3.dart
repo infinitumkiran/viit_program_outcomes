@@ -15,7 +15,6 @@ class _PageThreeState extends State<PageThree>{
   int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
 
-
   final List<PO> tripsList = [
     PO("Apply knowledge of Mathematics, Science, Computer Science and Engineering to solve the real-world problems of core and allied engineering disciplines. (Engineering knowledge)"),
     PO("Identify, formulate, survey literature and analyze Computer Science and Engineering problems and arrive at suitable conclusions. (Problem analysis)"),

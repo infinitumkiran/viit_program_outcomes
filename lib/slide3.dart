@@ -4,6 +4,7 @@ import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/Bullet.dart';
+import 'slidetrail.dart';
 
 class PageThree extends StatefulWidget {
   @override
@@ -83,8 +84,13 @@ class _PageThreeState extends State<PageThree>{
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
                                 // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(context, '/fourth');},),
-                            ),
+                                setState(() {
+                                  x = x + 1;
+                                }
+                                );
+                              }
+                              )
+                              ),
                           ],
                         ),
 

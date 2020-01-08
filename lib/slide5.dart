@@ -4,7 +4,7 @@ import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/Bullet.dart';
-
+import 'slidetrail.dart';
 class PageFive extends StatefulWidget {
   @override
   _PageFiveState createState() => _PageFiveState();
@@ -82,7 +82,11 @@ class _PageFiveState extends State<PageFive>{
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
                                 // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(context, '/sixth');},),
+                                setState(() {
+                                  x = x + 1;
+                                });
+                              }
+                            ),
                             ),
                           ],
                         ),

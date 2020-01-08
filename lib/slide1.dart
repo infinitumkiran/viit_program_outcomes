@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
+import 'slidetrail.dart';
 
 class PageOne extends StatefulWidget
 {
@@ -15,6 +16,7 @@ class PageOne extends StatefulWidget
 }
 
 class _PageOneState extends State<PageOne> {
+  Pro obj=new Pro();
   List<Map> _regNumbers =[
     {"id": 0, "name": "18L31A05R0"},
     {"id": 1, "name": "18L31A05R1"},
@@ -108,9 +110,9 @@ class _PageOneState extends State<PageOne> {
                     Container(
                       margin: EdgeInsets.all(30.0),
                       child:Button(title:'Next',onPressed:() {
-                        // Navigate to the second screen using a named route.
-                        if(PageOne.selectedNum!=null)
-                          Navigator.pushReplacementNamed(context, '/second');
+                        setState(() {
+                          x=x+1;
+                        });
                       }
                         ,),
                     ),

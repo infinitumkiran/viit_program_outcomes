@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/slide1.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:viitproject/widgets/appbar.dart';
+import 'slidetrail.dart';
 class PageTwo extends StatefulWidget {
   @override
   _PageTwoState createState() => _PageTwoState();
@@ -50,17 +51,20 @@ class _PageTwoState extends State<PageTwo> {
                     children: <Widget>[
                       Button(title:'Back',onPressed:() {
                         // Navigate to the second screen using a named route.
-                        Navigator.pushReplacementNamed(context, '/');
+                        setState(() {
+                          x=x-1;
+                        });
                       }
                         ,),
                       SizedBox(
                         width: 100.0,
                       ),
                       Button(title:'Next',onPressed:() {
-                        // Navigate to the second screen using a named route.
-                        Navigator.pushReplacementNamed(context, '/third');
+                        setState(() {
+                          x=x+1;
+                        });
                       }
-                        ,),
+                        ),
                     ],
                   ),
                 ),

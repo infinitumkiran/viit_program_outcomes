@@ -84,10 +84,7 @@ class _PageThreeState extends State<PageThree>{
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
                                 // Navigate to the second screen using a named route.
-                                setState(() {
-                                  x = x + 1;
-                                }
-                                );
+                                Navigator.pushReplacementNamed(context, '/fourth');
                               }
                               )
                               ),

@@ -39,7 +39,7 @@ class _PageTwoState extends State<PageTwo> {
                         color:Colors.indigo ),),
                 ),
                 Text(
-                  PageOne().getIndex(),
+                  '$selectedrollno',
                   style: TextStyle(
                       fontSize: 20.0
                   ),
@@ -51,18 +51,14 @@ class _PageTwoState extends State<PageTwo> {
                     children: <Widget>[
                       Button(title:'Back',onPressed:() {
                         // Navigate to the second screen using a named route.
-                        setState(() {
-                          x=x-1;
-                        });
+                        Navigator.pushReplacementNamed(context, '/');
                       }
                         ,),
                       SizedBox(
                         width: 100.0,
                       ),
                       Button(title:'Next',onPressed:() {
-                        setState(() {
-                          x=x+1;
-                        });
+                        Navigator.pushReplacementNamed(context, '/third');
                       }
                         ),
                     ],

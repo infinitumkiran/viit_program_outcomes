@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-void main() { runApp(MyApp());
- 
+import 'slidetrail.dart';
+import 'package:viitproject/slide1.dart';
+import 'package:viitproject/slide2.dart';
+import 'package:viitproject/slide3.dart';
+import 'package:viitproject/slide4.dart';
+import 'package:viitproject/slide5.dart';
+import 'package:viitproject/widgets/submission_alert.dart';
 
-}
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+void main() => runApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-          );
-        }
-}
+      title: 'VIITFEEDBACKFORM',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => PageOne(),
+        '/second': (context) => PageTwo(),
+       '/third': (context) => PageThree(),
+        '/fourth': (context) => PageFour(),
+        '/fifth': (context) => PageFive(),
+        '/sixth': (context) => SubmissionAlert('Succesfully Submitted'),
+
+
+      },
+      
+    )
+);

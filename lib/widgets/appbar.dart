@@ -18,17 +18,7 @@ AppBar buildAppBar(){
           width: 10,
           height: 10,
         ),
-        Text('PO/PSO VIIT FEEDBACK FORM',style: TextStyle(fontSize: 30.0),),
-        SizedBox(
-         width: 50,
-         height: 10,
-        ),
-        Text(
-  'RollNO',
-  textAlign: TextAlign.right,
-  overflow: TextOverflow.ellipsis,
-  style: TextStyle(fontWeight: FontWeight.bold),
-)
+        Text('PO/PSO VIIT FEEDBACK FORM',style: TextStyle(fontSize: 30.0),)
       ],
     ),
   );

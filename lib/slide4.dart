@@ -4,7 +4,7 @@ import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/Bullet.dart';
-import 'slidetrail.dart';
+import 'package:viitproject/widgets/values.dart';
 
 class PageFour extends StatefulWidget {
   @override
@@ -16,6 +16,18 @@ class _PageFourState extends State<PageFour>{
 
   int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
+  Values obj;
+   void setdata()
+  {
+    
+    obj.feedbackValues[0]=sliderValues[6] as int;
+    obj.feedbackValues[1]=sliderValues[7] as int;
+    obj.feedbackValues[2]=sliderValues[8] as int;
+    obj.feedbackValues[3]=sliderValues[9] as int;
+    obj.feedbackValues[4]=sliderValues[10] as int;
+    obj.feedbackValues[5]=sliderValues[11] as int;
+   
+  }
 
 
   final List<PO> tripsList = [
@@ -85,6 +97,7 @@ class _PageFourState extends State<PageFour>{
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
+                                setdata();
                                 // Navigate to the second screen using a named route.
                                 Navigator.pushReplacementNamed(context, '/fifth');
                               }

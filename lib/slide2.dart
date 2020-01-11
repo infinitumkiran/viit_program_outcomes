@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:viitproject/slide1.dart';
+import 'package:viitproject/widgets/values.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:viitproject/widgets/appbar.dart';
-import 'slidetrail.dart';
+import 'package:viitproject/slide1.dart';
 class PageTwo extends StatefulWidget {
   @override
   _PageTwoState createState() => _PageTwoState();
 }
 
 class _PageTwoState extends State<PageTwo> {
+  Values obj1;
+  PageOne obj;
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class _PageTwoState extends State<PageTwo> {
                         color:Colors.indigo ),),
                 ),
                 Text(
-                  '$selectedrollno',
+                  '$obj1.rollNO',
                   style: TextStyle(
                       fontSize: 20.0
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viitproject/slidetrail.dart';
+
 class Button extends StatelessWidget {
   Button({@required this.onPressed,this.title});
   Function onPressed;

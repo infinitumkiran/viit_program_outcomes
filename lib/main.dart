@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'slidetrail.dart';
 import 'package:viitproject/slide1.dart';
 import 'package:viitproject/slide2.dart';
 import 'package:viitproject/slide3.dart';

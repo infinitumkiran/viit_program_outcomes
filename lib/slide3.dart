@@ -4,15 +4,14 @@ import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/Bullet.dart';
-import 'slidetrail.dart';
-
+import 'package:viitproject/widgets/values.dart';
 class PageThree extends StatefulWidget {
   @override
   _PageThreeState createState() => _PageThreeState();
 }
 
 class _PageThreeState extends State<PageThree>{
-
+  
   int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
 
@@ -24,7 +23,18 @@ class _PageThreeState extends State<PageThree>{
     PO("Use appropriate techniques, resources,  modern engineering and CSE tools to model and simulate complex Computer Science and Engineering  systems with an understanding of  their limitations .(Modern tool usage)."),
     PO("Assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to Computer Science and Engineering practices. ( The engineer and society)"),
   ];
-
+  Values obj;
+   void setdata()
+  {
+    
+    obj.feedbackValues[0]=sliderValues[0] as int;
+    obj.feedbackValues[1]=sliderValues[1] as int;
+    obj.feedbackValues[2]=sliderValues[2] as int;
+    obj.feedbackValues[3]=sliderValues[3] as int;
+    obj.feedbackValues[4]=sliderValues[4] as int;
+    obj.feedbackValues[5]=sliderValues[5] as int;
+   
+  }
   @override
   Widget build(BuildContext context) {
     final _height=  MediaQuery.of(context).size.height;
@@ -83,6 +93,7 @@ class _PageThreeState extends State<PageThree>{
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
+                                setdata();
                                 // Navigate to the second screen using a named route.
                                 Navigator.pushReplacementNamed(context, '/fourth');
                               }

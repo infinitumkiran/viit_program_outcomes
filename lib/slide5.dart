@@ -1,10 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/Bullet.dart';
-import 'slidetrail.dart';
+import 'package:viitproject/widgets/values.dart';
+import 'package:http/http.dart' as http;
 class PageFive extends StatefulWidget {
   @override
   _PageFiveState createState() => _PageFiveState();
@@ -12,11 +15,25 @@ class PageFive extends StatefulWidget {
 
 class _PageFiveState extends State<PageFive>{
 
-
+  
   int rating=0;
-  List<double> sliderValues = [0, 0, 0, 0, 0, 0];
-
-
+  List<double> sliderValues = [0, 0];
+  Values obj;
+   void setdata()
+  {
+    
+    obj.feedbackValues[12]=sliderValues[0] as int;
+    obj.feedbackValues[13]=sliderValues[1] as int;
+    http
+        .put('https://viit-po-pso-feedback.firebaseio.com/RollNo/$obj.rollNO.json',
+            body: json.encode(obj.sendData()))
+        .then((http.Response response) {
+      // print('i should be executed before am i waiting');
+    }).catchError((error) {
+      print('There is an error');
+      return false;
+    });
+  } 
 
   final List<PO> tripsList = [
     PO("Ability to design and develop efficient software-based systems using core computer science and engineering principles, algorithms and problem-solving techniques"),
@@ -81,6 +98,7 @@ class _PageFiveState extends State<PageFive>{
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
+                                setdata();
                                 // Navigate to the second screen using a named route.
                                Navigator.pushReplacementNamed(context, '/sixth');
                               }

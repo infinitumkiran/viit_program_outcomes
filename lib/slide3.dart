@@ -13,7 +13,7 @@ class PageThree extends StatefulWidget {
 class _PageThreeState extends State<PageThree>{
   
   int rating=0;
-  List<double> sliderValues = [0, 0, 0, 0, 0, 0];
+  static List<double> sliderValues = [0, 0, 0, 0, 0, 0];
 
   final List<PO> tripsList = [
     PO("Apply knowledge of Mathematics, Science, Computer Science and Engineering to solve the real-world problems of core and allied engineering disciplines. (Engineering knowledge)"),
@@ -23,16 +23,16 @@ class _PageThreeState extends State<PageThree>{
     PO("Use appropriate techniques, resources,  modern engineering and CSE tools to model and simulate complex Computer Science and Engineering  systems with an understanding of  their limitations .(Modern tool usage)."),
     PO("Assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to Computer Science and Engineering practices. ( The engineer and society)"),
   ];
-  Values obj;
+  
    void setdata()
   {
     
-    obj.feedbackValues[0]=sliderValues[0] as int;
-    obj.feedbackValues[1]=sliderValues[1] as int;
-    obj.feedbackValues[2]=sliderValues[2] as int;
-    obj.feedbackValues[3]=sliderValues[3] as int;
-    obj.feedbackValues[4]=sliderValues[4] as int;
-    obj.feedbackValues[5]=sliderValues[5] as int;
+    feedbackValues[0]=sliderValues[0] as int;
+    feedbackValues[1]=sliderValues[1] as int;
+    feedbackValues[2]=sliderValues[2] as int;
+    feedbackValues[3]=sliderValues[3] as int;
+    feedbackValues[4]=sliderValues[4] as int;
+    feedbackValues[5]=sliderValues[5] as int;
    
   }
   @override

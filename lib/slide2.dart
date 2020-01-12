@@ -42,7 +42,7 @@ class _PageTwoState extends State<PageTwo> {
                         decoration: TextDecoration.underline,
                         color:Colors.indigo ),),
                 ),
-                Text(selectedrollno.toString()
+                Text(rollNO
                   ,
                   style: TextStyle(
                       fontSize: 20.0

@@ -13,19 +13,17 @@ class PageFour extends StatefulWidget {
 
 class _PageFourState extends State<PageFour>{
 
-
-  int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
-  Values obj;
+ 
    void setdata()
   {
     
-    obj.feedbackValues[0]=sliderValues[6] as int;
-    obj.feedbackValues[1]=sliderValues[7] as int;
-    obj.feedbackValues[2]=sliderValues[8] as int;
-    obj.feedbackValues[3]=sliderValues[9] as int;
-    obj.feedbackValues[4]=sliderValues[10] as int;
-    obj.feedbackValues[5]=sliderValues[11] as int;
+    feedbackValues[6]=sliderValues[0] as int;
+    feedbackValues[7]=sliderValues[1] as int;
+    feedbackValues[8]=sliderValues[2] as int;
+    feedbackValues[9]=sliderValues[3] as int;
+    feedbackValues[10]=sliderValues[4] as int;
+    feedbackValues[11]=sliderValues[5] as int;
    
   }
 

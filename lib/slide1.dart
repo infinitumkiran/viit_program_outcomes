@@ -134,7 +134,8 @@ class _PageOneState extends State<PageOne> {
                       child: Button(
                         title: 'Next',
                         onPressed: () {
-                            
+                            rollNO=selectedrollno;
+                            print(rollNO);
                           Navigator.pushReplacementNamed(context, '/second');
                         },
                       ),

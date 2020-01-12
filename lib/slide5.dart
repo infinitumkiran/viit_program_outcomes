@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:viitproject/slide1.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'PO/po.dart';
@@ -14,20 +15,21 @@ class PageFive extends StatefulWidget {
 }
 
 class _PageFiveState extends State<PageFive>{
-
   
-  int rating=0;
+  
+  PageOne selectedrollno;
   List<double> sliderValues = [0, 0];
-  Values obj;
+  
    void setdata()
   {
     
-    obj.feedbackValues[12]=sliderValues[0] as int;
-    obj.feedbackValues[13]=sliderValues[1] as int;
+    feedbackValues[12]=sliderValues[0] as int;
+    feedbackValues[13]=sliderValues[1] as int;
     http
-        .put('https://viit-po-pso-feedback.firebaseio.com/RollNo/$obj.rollNO.json',
-            body: json.encode(obj.sendData()))
+        .put('https://viit-po-pso-feedback.firebaseio.com/RollNo/$rollNO.json',
+            body: json.encode(Feedback1))
         .then((http.Response response) {
+          print(jsonEncode(Feedback1));
       // print('i should be executed before am i waiting');
     }).catchError((error) {
       print('There is an error');

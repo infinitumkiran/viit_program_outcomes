@@ -1,9 +1,10 @@
-import 'package:http/http.dart' as http;
-class Values{
-  Map<String, dynamic> Feedback=[] as Map<String,dynamic >;
-  
-  Values(){
-        Feedback = {
+
+String rollNO;
+
+List<int>feedbackValues=[0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+
+Map<String, dynamic> Feedback1 = {
       'PO1': feedbackValues[0],
       'PO2': feedbackValues[1],
       'PO3': feedbackValues[2],
@@ -19,10 +20,6 @@ class Values{
       'PSO1': feedbackValues[12],
       'PSO2':feedbackValues[13],
 };
-  }
-  Map<String,dynamic> sendData()
-  {return Feedback;}
-String rollNO='';
-List<int>feedbackValues=[];
+  
 
-}
+

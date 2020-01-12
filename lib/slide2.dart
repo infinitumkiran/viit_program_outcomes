@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:viitproject/slide1.dart';
 import 'package:viitproject/widgets/values.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:viitproject/widgets/appbar.dart';
-import 'package:viitproject/slide1.dart';
+
 class PageTwo extends StatefulWidget {
   @override
   _PageTwoState createState() => _PageTwoState();
 }
 
 class _PageTwoState extends State<PageTwo> {
-<<<<<<< HEAD
-  Values obj;
- 
-=======
-  Values obj1;
-  PageOne obj;
 
 
->>>>>>> parent of 74e9b6f... hi3
+  PageOne selectedrollno;
+
   @override
   Widget build(BuildContext context) {
     final _height=  MediaQuery.of(context).size.height;
@@ -41,13 +37,13 @@ class _PageTwoState extends State<PageTwo> {
                 Container(
                   margin: EdgeInsets.fromLTRB(10.0, 40.0, 0.0,0.0),
 
-                  child: Text('Your Registration Number',
+                  child: Text('Your Registration Number is',
                     style: TextStyle(fontSize: 20.0,
                         decoration: TextDecoration.underline,
                         color:Colors.indigo ),),
                 ),
-                Text(
-                  '$obj1.rollNO',
+                Text(selectedrollno.toString()
+                  ,
                   style: TextStyle(
                       fontSize: 20.0
                   ),

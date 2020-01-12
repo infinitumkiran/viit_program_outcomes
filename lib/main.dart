@@ -6,7 +6,8 @@ import 'package:viitproject/slide4.dart';
 import 'package:viitproject/slide5.dart';
 import 'package:viitproject/widgets/submission_alert.dart';
 
-void main() => runApp(
+void main() { 
+  runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'VIITFEEDBACKFORM',
@@ -24,3 +25,4 @@ void main() => runApp(
       
     )
 );
+}

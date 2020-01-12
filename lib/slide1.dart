@@ -20,17 +20,12 @@ class PageOne extends StatefulWidget {
 }
 
 class _PageOneState extends State<PageOne> {
-  Values obj;
+  static String selectedrollno;
   
-<<<<<<< HEAD
-  String selectedrollno;
-  
-=======
-  List<String> _regNumbers = [];
->>>>>>> parent of 74e9b6f... hi3
+  List<String> regNumbers = [];
   String get selectedRollNumber {
   
-  return obj.rollNO;
+  return selectedrollno;
 }
 
 
@@ -42,17 +37,15 @@ class _PageOneState extends State<PageOne> {
 
   } // Option 2
 
-<<<<<<< HEAD
-  
-=======
-  _dropdownButton() {
+  dropdownButton() {
     return FutureBuilder(
       future: http
           .get('https://viit-po-pso-feedback.firebaseio.com/RollNo.json')
           .then<bool>((http.Response response) {
         var rollJson = jsonDecode(response.body);
         print(response.body);
-        _regNumbers = List.from(rollJson);
+        
+        regNumbers = List.from(rollJson);
 //       // print(_rollNumbers);
 
         return true;
@@ -67,14 +60,14 @@ class _PageOneState extends State<PageOne> {
               focusColor: Colors.blue,
               hint: Text(
                   'Select a registration number'), // Not necessary for Option 1
-              value: obj.rollNO,
+              value: selectedrollno,
               onChanged: (newValue) {
                 setState(() {
-                  obj.rollNO=newValue;
+                  selectedrollno=newValue;
 
                 });
               },
-              items: _regNumbers.map<DropdownMenuItem<String>>((String value) {
+              items: regNumbers.map<DropdownMenuItem<String>>((String value) {
                 return new DropdownMenuItem<String>(
                   value: value,
                   child: new Text(value),
@@ -88,7 +81,6 @@ class _PageOneState extends State<PageOne> {
       },
     );
   }
->>>>>>> parent of 74e9b6f... hi3
 
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
@@ -131,7 +123,7 @@ class _PageOneState extends State<PageOne> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10.0),
                         border: Border.all(color: Colors.indigo)),
-                    child: widget.model.dropdownButton(),
+                    child: dropdownButton(),
                   ),
                 ),
                 Row(
@@ -142,13 +134,8 @@ class _PageOneState extends State<PageOne> {
                       child: Button(
                         title: 'Next',
                         onPressed: () {
-<<<<<<< HEAD
-                          widget.model.setrollno(this.selectedrollno);
+                            
                           Navigator.pushReplacementNamed(context, '/second');
-=======
-                          
-                          Navigator.pushReplacementNamed(context, '/third');
->>>>>>> parent of 74e9b6f... hi3
                         },
                       ),
                     ),

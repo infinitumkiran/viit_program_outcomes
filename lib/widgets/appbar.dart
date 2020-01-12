@@ -9,7 +9,7 @@ AppBar buildAppBar(){
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Image(
-          image: AssetImage('assets/vignan_logo.png'),
+          image: AssetImage('images/vignan_logo.png'),
           height: 40,
           width: 40,
           fit: BoxFit.contain,

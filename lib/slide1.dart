@@ -40,13 +40,13 @@ class _PageOneState extends State<PageOne> {
   dropdownButton() {
     return FutureBuilder(
       future: http
-          .get('https://viit-po-pso-feedback.firebaseio.com/RollNo.json')
+          .get('https://viit-po-pso-feedback.firebaseio.com/Details/RollNo.json')
           .then<bool>((http.Response response) {
         var rollJson = jsonDecode(response.body);
         print(response.body);
         
         regNumbers = List.from(rollJson);
-       // print(_rollNumbers);
+//       // print(_rollNumbers);
 
         return true;
       }).catchError((error) {

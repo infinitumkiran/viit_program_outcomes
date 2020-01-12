@@ -21,7 +21,7 @@ class _PageFiveState extends State<PageFive> {
     feedbackValues[12] = sliderValues[0] as int;
     feedbackValues[13] = sliderValues[1] as int;
     http
-        .put('https://viit-po-pso-feedback.firebaseio.com/RollNo/$rollNO.json',
+        .put('https://viit-po-pso-feedback.firebaseio.com/Feedback/$rollNO.json',
             body: json.encode(Feedback1))
         .then((http.Response response) {
       print(jsonEncode(Feedback1));

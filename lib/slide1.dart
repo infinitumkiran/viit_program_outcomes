@@ -8,11 +8,6 @@ import 'package:http/http.dart' as http;
 //var //json=JsonDecoder()
 
 
-List<String> get allRollNumbers {
-  return List.from(_regNumbers);
-}
-
-List<String> _regNumbers = [];
 
 class PageOne extends StatefulWidget {
   final Values model;
@@ -25,7 +20,7 @@ class PageOne extends StatefulWidget {
 class _PageOneState extends State<PageOne> {
   
   String selectedrollno;
-  List<String> _regNumbers = [];
+  
   String get selectedRollNumber {
   
   return selectedrollno;
@@ -40,52 +35,7 @@ class _PageOneState extends State<PageOne> {
 
   } // Option 2
 
-  _dropdownButton() {
-    return FutureBuilder(
-      future: http
-          .get('https://viit-po-pso-feedback.firebaseio.com/RollNo.json')
-          .then<bool>((http.Response response) {
-        var rollJson = jsonDecode(response.body);
-        print(response.body);
-        print(selectedrollno);
-        
-        _regNumbers = List.from(rollJson);
-//       // print(_rollNumbers);
-
-        return true;
-      }).catchError((error) {
-        print('There is an error');
-        return false;
-      }),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done)
-          return DropdownButtonHideUnderline(
-            child: DropdownButton(
-              focusColor: Colors.blue,
-              hint: Text(
-                  'Select a registration number'), // Not necessary for Option 1
-              value: selectedrollno,
-              onChanged: (newValue) {
-                setState(() {
-                  selectedrollno=newValue;
-                  
-
-                });
-              },
-              items: _regNumbers.map<DropdownMenuItem<String>>((String value) {
-                return new DropdownMenuItem<String>(
-                  value: value,
-                  child: new Text(value),
-                );
-              }).toList(),
-            ),
-          );
-        else {
-          return CircularProgressIndicator();
-        }
-      },
-    );
-  }
+  
 
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
@@ -128,7 +78,7 @@ class _PageOneState extends State<PageOne> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10.0),
                         border: Border.all(color: Colors.indigo)),
-                    child: _dropdownButton(),
+                    child: widget.model.dropdownButton(),
                   ),
                 ),
                 Row(
@@ -140,7 +90,7 @@ class _PageOneState extends State<PageOne> {
                         title: 'Next',
                         onPressed: () {
                           widget.model.setrollno(this.selectedrollno);
-                          Navigator.pushReplacementNamed(context, '/third');
+                          Navigator.pushReplacementNamed(context, '/second');
                         },
                       ),
                     ),

@@ -1,12 +1,57 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:scoped_model/scoped_model.dart';
 class Values extends Model{
-String rollNO='Select your registration id';
+String rollNO;
+
+
+List<String> regNumbers = [];
 List<int>feedbackValues=[];
   setrollno(String id){
     rollNO=id;
+  }
+  dropdownButton() {
+    return FutureBuilder(
+      future: http
+          .get('https://viit-po-pso-feedback.firebaseio.com/RollNo.json')
+          .then<bool>((http.Response response) {
+        var rollJson = jsonDecode(response.body);
+        print(response.body);
+      
+       regNumbers= List.from(rollJson);
+//       // print(_rollNumbers);
+
+        return true;
+      }).catchError((error) {
+        print('There is an error');
+        return false;
+      }),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done)
+          return DropdownButtonHideUnderline(
+            child: DropdownButton(
+              focusColor: Colors.blue,
+              hint: Text(
+                  'Select a registration number'), // Not necessary for Option 1
+              value: rollNO,
+              onChanged: (newValue) {
+                rollNO=newValue;
+              },
+              items:regNumbers.map<DropdownMenuItem<String>>((String value) {
+                return new DropdownMenuItem<String>(
+                  value: value,
+                  child: new Text(value),
+                );
+              }).toList(),
+            ),
+          );
+        else {
+          return CircularProgressIndicator();
+        }
+      },
+    );
   }
   setfeedback1(List sliderValues)
   {

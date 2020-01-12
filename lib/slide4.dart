@@ -7,6 +7,8 @@ import 'package:viitproject/widgets/Bullet.dart';
 import 'package:viitproject/widgets/values.dart';
 
 class PageFour extends StatefulWidget {
+  final Values model;
+  PageFour(this.model);
   @override
   _PageFourState createState() => _PageFourState();
 }
@@ -17,18 +19,7 @@ class _PageFourState extends State<PageFour>{
   int rating=0;
   List<double> sliderValues = [0, 0, 0, 0, 0, 0];
   Values obj;
-   void setdata()
-  {
-    
-    obj.feedbackValues[0]=sliderValues[6] as int;
-    obj.feedbackValues[1]=sliderValues[7] as int;
-    obj.feedbackValues[2]=sliderValues[8] as int;
-    obj.feedbackValues[3]=sliderValues[9] as int;
-    obj.feedbackValues[4]=sliderValues[10] as int;
-    obj.feedbackValues[5]=sliderValues[11] as int;
    
-  }
-
 
   final List<PO> tripsList = [
     PO("Understand the impact of Computer Science and Engineering solutions on society & eco-friendly environment and the need for sustainable development.(Environment and sustainability)"),
@@ -97,7 +88,7 @@ class _PageFourState extends State<PageFour>{
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Button(title:'Next',onPressed:() {
-                                setdata();
+                                widget.model.setfeedback2(this.sliderValues);
                                 // Navigate to the second screen using a named route.
                                 Navigator.pushReplacementNamed(context, '/fifth');
                               }

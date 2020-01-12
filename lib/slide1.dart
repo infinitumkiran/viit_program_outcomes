@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:http/http.dart' as http;
-
-Map<String, dynamic> responseData = {};
-
 //List<String>[
 //var //json=JsonDecoder()
 
@@ -18,19 +15,20 @@ List<String> get allRollNumbers {
 List<String> _regNumbers = [];
 
 class PageOne extends StatefulWidget {
-  
+  final Values model;
+  PageOne(this.model);
   @override
   _PageOneState createState() => _PageOneState();
 
 }
 
 class _PageOneState extends State<PageOne> {
-  Values obj;
   
+  String selectedrollno;
   List<String> _regNumbers = [];
   String get selectedRollNumber {
   
-  return obj.rollNO;
+  return selectedrollno;
 }
 
 
@@ -49,6 +47,8 @@ class _PageOneState extends State<PageOne> {
           .then<bool>((http.Response response) {
         var rollJson = jsonDecode(response.body);
         print(response.body);
+        print(selectedrollno);
+        
         _regNumbers = List.from(rollJson);
 //       // print(_rollNumbers);
 
@@ -64,10 +64,11 @@ class _PageOneState extends State<PageOne> {
               focusColor: Colors.blue,
               hint: Text(
                   'Select a registration number'), // Not necessary for Option 1
-              value: obj.rollNO,
+              value: selectedrollno,
               onChanged: (newValue) {
                 setState(() {
-                  obj.rollNO=newValue;
+                  selectedrollno=newValue;
+                  
 
                 });
               },
@@ -138,7 +139,7 @@ class _PageOneState extends State<PageOne> {
                       child: Button(
                         title: 'Next',
                         onPressed: () {
-                          
+                          widget.model.setrollno(this.selectedrollno);
                           Navigator.pushReplacementNamed(context, '/third');
                         },
                       ),

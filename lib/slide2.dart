@@ -4,15 +4,15 @@ import 'package:viitproject/widgets/Button.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/slide1.dart';
 class PageTwo extends StatefulWidget {
+  final Values model;
+  PageTwo(this.model);
   @override
   _PageTwoState createState() => _PageTwoState();
 }
 
 class _PageTwoState extends State<PageTwo> {
-  Values obj1;
-  PageOne obj;
-
-
+  Values obj;
+  
   @override
   Widget build(BuildContext context) {
     final _height=  MediaQuery.of(context).size.height;
@@ -42,7 +42,7 @@ class _PageTwoState extends State<PageTwo> {
                         color:Colors.indigo ),),
                 ),
                 Text(
-                  '$obj1.rollNO',
+                  widget.model.rollNO,
                   style: TextStyle(
                       fontSize: 20.0
                   ),

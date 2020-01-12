@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -81,6 +82,11 @@ List<int>feedbackValues=[];
 
   }
   Map<String, dynamic> Feedback={};
+=======
+import 'package:http/http.dart' as http;
+class Values{
+  Map<String, dynamic> Feedback=[] as Map<String,dynamic >;
+>>>>>>> parent of 74e9b6f... hi3
   Values(this.rollNO){
         Feedback = {
       'PO1': feedbackValues[0],
@@ -101,18 +107,7 @@ List<int>feedbackValues=[];
   }
   Map<String,dynamic> sendData()
   {return Feedback;}
-   void setdata()
-  {
-    
-    http
-        .put('https://viit-po-pso-feedback.firebaseio.com/RollNo/rollNO.json',
-            body: json.encode(Feedback))
-        .then((http.Response response) {
-      // print('i should be executed before am i waiting');
-    }).catchError((error) {
-      print('There is an error');
-      return false;
-    });
-  } 
+String rollNO='';
+List<int>feedbackValues=[];
 
 }

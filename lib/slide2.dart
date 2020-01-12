@@ -4,15 +4,20 @@ import 'package:viitproject/widgets/Button.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/slide1.dart';
 class PageTwo extends StatefulWidget {
-  final Values model;
-  PageTwo(this.model);
   @override
   _PageTwoState createState() => _PageTwoState();
 }
 
 class _PageTwoState extends State<PageTwo> {
+<<<<<<< HEAD
   Values obj;
  
+=======
+  Values obj1;
+  PageOne obj;
+
+
+>>>>>>> parent of 74e9b6f... hi3
   @override
   Widget build(BuildContext context) {
     final _height=  MediaQuery.of(context).size.height;
@@ -42,7 +47,7 @@ class _PageTwoState extends State<PageTwo> {
                         color:Colors.indigo ),),
                 ),
                 Text(
-                  widget.model.rollNO,
+                  '$obj1.rollNO',
                   style: TextStyle(
                       fontSize: 20.0
                   ),

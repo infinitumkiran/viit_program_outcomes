@@ -4,26 +4,33 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:http/http.dart' as http;
+
+Map<String, dynamic> responseData = {};
+
 //List<String>[
 //var //json=JsonDecoder()
 
 
 
 class PageOne extends StatefulWidget {
-  final Values model;
-  PageOne(this.model);
+  
   @override
   _PageOneState createState() => _PageOneState();
 
 }
 
 class _PageOneState extends State<PageOne> {
+  Values obj;
   
+<<<<<<< HEAD
   String selectedrollno;
   
+=======
+  List<String> _regNumbers = [];
+>>>>>>> parent of 74e9b6f... hi3
   String get selectedRollNumber {
   
-  return selectedrollno;
+  return obj.rollNO;
 }
 
 
@@ -35,7 +42,53 @@ class _PageOneState extends State<PageOne> {
 
   } // Option 2
 
+<<<<<<< HEAD
   
+=======
+  _dropdownButton() {
+    return FutureBuilder(
+      future: http
+          .get('https://viit-po-pso-feedback.firebaseio.com/RollNo.json')
+          .then<bool>((http.Response response) {
+        var rollJson = jsonDecode(response.body);
+        print(response.body);
+        _regNumbers = List.from(rollJson);
+//       // print(_rollNumbers);
+
+        return true;
+      }).catchError((error) {
+        print('There is an error');
+        return false;
+      }),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done)
+          return DropdownButtonHideUnderline(
+            child: DropdownButton(
+              focusColor: Colors.blue,
+              hint: Text(
+                  'Select a registration number'), // Not necessary for Option 1
+              value: obj.rollNO,
+              onChanged: (newValue) {
+                setState(() {
+                  obj.rollNO=newValue;
+
+                });
+              },
+              items: _regNumbers.map<DropdownMenuItem<String>>((String value) {
+                return new DropdownMenuItem<String>(
+                  value: value,
+                  child: new Text(value),
+                );
+              }).toList(),
+            ),
+          );
+        else {
+          return CircularProgressIndicator();
+        }
+      },
+    );
+  }
+>>>>>>> parent of 74e9b6f... hi3
 
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
@@ -89,8 +142,13 @@ class _PageOneState extends State<PageOne> {
                       child: Button(
                         title: 'Next',
                         onPressed: () {
+<<<<<<< HEAD
                           widget.model.setrollno(this.selectedrollno);
                           Navigator.pushReplacementNamed(context, '/second');
+=======
+                          
+                          Navigator.pushReplacementNamed(context, '/third');
+>>>>>>> parent of 74e9b6f... hi3
                         },
                       ),
                     ),

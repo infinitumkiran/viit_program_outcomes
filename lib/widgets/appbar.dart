@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 AppBar buildAppBar(){
   return AppBar(
 
-    backgroundColor: Colors.indigo[400],
+    backgroundColor: Colors.indigo,
     centerTitle: true,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -18,7 +18,7 @@ AppBar buildAppBar(){
           width: 10,
           height: 10,
         ),
-        Text('PO/PSO VIIT FEEDBACK FORM',style: TextStyle(fontSize: 30.0),)
+        Text('PO/PSO VIIT FEEDBACK FORM',style: TextStyle(fontSize: 28.0),)
       ],
     ),
   );

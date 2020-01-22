@@ -18,7 +18,7 @@ AppBar buildAppBar(){
           width: 10,
           height: 10,
         ),
-        Text('PO/PSO VIIT FEEDBACK ',style: TextStyle(fontSize: 28.0),)
+        Text('PO/PSO VIIT FEEDBACK FORM',style: TextStyle(fontSize: 28.0),)
       ],
     ),
   );

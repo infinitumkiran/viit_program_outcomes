@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 AppBar buildAppBar(){
   return AppBar(
 
-    backgroundColor: Colors.indigo,
+    backgroundColor: Colors.indigo[800],
     centerTitle: true,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,

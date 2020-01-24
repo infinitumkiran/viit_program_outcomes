@@ -54,7 +54,7 @@ class _PageFourState extends State<PageFour> {
                     fontWeight: FontWeight.bold),
               )),
             ),
-            SizedBox(height: 30.0),
+            SizedBox(height:_height*0.0132555669),
             Container(
                 width: _width * 1.85577937,
                 height: _height * 0.795334015,

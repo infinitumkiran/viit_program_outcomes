@@ -54,6 +54,7 @@ class _PageOneState extends State<PageOne> {
         return false;
       }),
       builder: (context, snapshot) {
+
         if (snapshot.connectionState == ConnectionState.done)
           return DropdownButtonHideUnderline(
             child: DropdownButton(
@@ -133,10 +134,12 @@ class _PageOneState extends State<PageOne> {
                       margin: EdgeInsets.all(30.0),
                       child: Button(
                         title: 'Next',
-                        onPressed: () {
+                        onPressed:() {
                             rollNO=selectedrollno;
                             print(rollNO);
-                          Navigator.pushReplacementNamed(context, '/second');
+                            if(rollNO!=null){
+                            Navigator.pushReplacementNamed(context, '/second');
+                            }
                         },
                       ),
                     ),

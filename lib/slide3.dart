@@ -56,7 +56,7 @@ class _PageThreeState extends State<PageThree>{
                   child: Text("0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
                     style: TextStyle(color: Colors.indigo, fontSize: 22.0,fontWeight:FontWeight.bold),)),
             ),
-            SizedBox(height:30.0),
+            SizedBox(height:_height*0.0132555669),
 
 
                Container(

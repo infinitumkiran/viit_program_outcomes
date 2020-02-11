@@ -49,21 +49,20 @@ class _PageFourState extends State<PageFour> {
                   child: Text(
                 "0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
                 style: TextStyle(
-                    
                     color: Colors.black,
                     fontSize: 22.0,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.bold),
               )),
             ),
-            SizedBox(height:_height*0.0132555669),
+            SizedBox(height: _height * 0.0132555669),
             Container(
                 width: _width * 1.85577937,
                 height: _height * 0.795334015,
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color:Color(0xff673AB7),
+                    color: Color(0xff673AB7),
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(12),
@@ -75,12 +74,11 @@ class _PageFourState extends State<PageFour> {
                     child: Text('PROGRAM OUTCOMES',
                         style: TextStyle(
                           fontSize: 30,
-                          color:Color(0xff673AB7),
+                          color: Color(0xff673AB7),
                           fontFamily: 'poppins',
                           decoration: TextDecoration.underline,
                         )),
                   ),
-                  
                   Expanded(
                     child: new ListView.builder(
                         itemCount: tripsList.length,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/slide1.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
+import 'package:viitproject/widgets/Bullet.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/values.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +22,8 @@ class _PageFiveState extends State<PageFive> {
     feedbackValues[12] = sliderValues[0] as int;
     feedbackValues[13] = sliderValues[1] as int;
     http
-        .put('https://viit-po-pso-feedback.firebaseio.com/Feedback/$rollNO.json',
+        .put(
+            'https://viit-po-pso-feedback.firebaseio.com/Feedback/$rollNO.json',
             body: json.encode(Feedback1))
         .then((http.Response response) {
       print(jsonEncode(Feedback1));
@@ -51,26 +53,26 @@ class _PageFiveState extends State<PageFive> {
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Center(
-                
                   child: Text(
                 "0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
                 style: TextStyle(
-                    color: Colors.indigo,
+                    color: Colors.black,
+                    fontFamily: 'poppins',
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold),
               )),
             ),
-            SizedBox(height:_height*0.0132555669),
+            SizedBox(height: _height * 0.0132555669),
             Container(
                 width: _width * 1.85577937,
                 height: _height * 0.795334015,
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.indigo[300],
+                    color: Color(0xff673AB7),
                     width: 2,
                   ),
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
                 child: Column(children: <Widget>[
@@ -79,11 +81,11 @@ class _PageFiveState extends State<PageFive> {
                     child: Text('PROGRAM SPECIFIC OUTCOMES',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Colors.indigo,
+                          fontFamily: 'poppins',
+                          color: Color(0xff673AB7),
                           decoration: TextDecoration.underline,
                         )),
                   ),
-                  
                   Expanded(
                     child: new ListView.builder(
                         itemCount: tripsList.length,
@@ -159,22 +161,6 @@ class _PageFiveState extends State<PageFive> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class MyBullet extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final _height = MediaQuery.of(context).size.height;
-    final _width = MediaQuery.of(context).size.height;
-    return new Container(
-      height: _height * 0.025,
-      width: _width * 0.025,
-      decoration: new BoxDecoration(
-        color: Colors.indigo,
-        shape: BoxShape.circle,
       ),
     );
   }

@@ -48,30 +48,28 @@ class _PageOneState extends State<PageOne> {
         return false;
       }),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done)
-          return DropdownButtonHideUnderline(
-            child: DropdownButton(
-              focusColor: Color(0xff673AB7),
-              hint: Text(
-                'Select a registration number',
-                style:
-                    TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-              ), // Not necessary for Option 1
-              value: selectedrollno,
-              onChanged: (newValue) {
-                setState(() {
-                  selectedrollno = newValue;
-                });
-              },
-              items: regNumbers.map<DropdownMenuItem<String>>((String value) {
-                return new DropdownMenuItem<String>(
-                  value: value,
-                  child: new Text(value),
-                );
-              }).toList(),
-            ),
-          );
-        else {}
+        return DropdownButtonHideUnderline(
+          child: DropdownButton(
+            focusColor: Color(0xff673AB7),
+            hint: Text(
+              'Select a registration number',
+              style:
+                  TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
+            ), // Not necessary for Option 1
+            value: selectedrollno,
+            onChanged: (newValue) {
+              setState(() {
+                selectedrollno = newValue;
+              });
+            },
+            items: regNumbers.map<DropdownMenuItem<String>>((String value) {
+              return new DropdownMenuItem<String>(
+                value: value,
+                child: new Text(value),
+              );
+            }).toList(),
+          ),
+        );
       },
     );
   }
@@ -100,26 +98,26 @@ class _PageOneState extends State<PageOne> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    SizedBox(
-                      height: _height * 0.01,
-                    ),
-                    Container(
-                      child: Text(
-                        'Choose Your Registration Number',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.black,
-                          fontFamily: 'poppins',
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Container(
+                        child: Text(
+                          'Choose Your Registration Number',
+                          style: TextStyle(
+                            fontSize: 19.0,
+                            color: Colors.black,
+                            fontFamily: 'poppins',
+                          ),
                         ),
                       ),
                     ),
                     Divider(
                       height: 8,
                       thickness: 2,
-                      color: Theme.of(context).accentColor,
+                      color: Color(0xff673AB7),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 120),
+                      padding: const EdgeInsets.only(top: 100),
                       child: Container(
                         // margin: EdgeInsets.symmetric(horizontal: 40.0),
                         width: 240.0,
@@ -135,7 +133,7 @@ class _PageOneState extends State<PageOne> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(top: 120.0),
+                          padding: const EdgeInsets.only(top: 40.0),
                           child: Container(
                             margin: EdgeInsets.all(30.0),
                             child: Button(

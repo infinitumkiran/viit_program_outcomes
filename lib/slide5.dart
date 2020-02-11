@@ -8,6 +8,7 @@ import 'package:viitproject/widgets/Bullet.dart';
 import 'PO/po.dart';
 import 'package:viitproject/widgets/values.dart';
 import 'package:http/http.dart' as http;
+import 'package:auto_size_text/auto_size_text.dart';
 
 class PageFive extends StatefulWidget {
   @override
@@ -53,8 +54,9 @@ class _PageFiveState extends State<PageFive> {
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Center(
-                  child: Text(
+                  child: AutoSizeText(
                 "0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
+                maxLines: 1,
                 style: TextStyle(
                     color: Colors.black,
                     fontFamily: 'poppins',
@@ -66,7 +68,7 @@ class _PageFiveState extends State<PageFive> {
             Container(
                 width: _width * 1.85577937,
                 height: _height * 0.795334015,
-                margin: EdgeInsets.symmetric(horizontal: 30),
+                margin: EdgeInsets.symmetric(horizontal: _width*0.0132555673),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Color(0xff673AB7),
@@ -77,8 +79,9 @@ class _PageFiveState extends State<PageFive> {
                 ),
                 child: Column(children: <Widget>[
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: Text('PROGRAM SPECIFIC OUTCOMES',
+                    margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
+                    child: AutoSizeText('PROGRAM SPECIFIC OUTCOMES',
+                    maxLines: 1,
                         style: TextStyle(
                           fontSize: 30,
                           fontFamily: 'poppins',
@@ -151,8 +154,9 @@ class _PageFiveState extends State<PageFive> {
                 },
               ),
               Container(
-                  child: Text(
+                  child: AutoSizeText(
                 "${sliderValues[index]}",
+                maxLines: 1,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 22.0,

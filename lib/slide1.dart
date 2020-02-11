@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:http/http.dart' as http;
+import 'package:auto_size_text/auto_size_text.dart';
+
 
 Map<String, dynamic> responseData = {};
 
@@ -51,10 +53,11 @@ class _PageOneState extends State<PageOne> {
         return DropdownButtonHideUnderline(
           child: DropdownButton(
             focusColor: Color(0xff673AB7),
-            hint: Text(
+            hint: AutoSizeText(
               'Select a registration number',
               style:
                   TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
+                  maxLines: 1,
             ), // Not necessary for Option 1
             value: selectedrollno,
             onChanged: (newValue) {
@@ -65,7 +68,7 @@ class _PageOneState extends State<PageOne> {
             items: regNumbers.map<DropdownMenuItem<String>>((String value) {
               return new DropdownMenuItem<String>(
                 value: value,
-                child: new Text(value),
+                child: new AutoSizeText(value,maxLines: 1,),
               );
             }).toList(),
           ),
@@ -101,8 +104,9 @@ class _PageOneState extends State<PageOne> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Container(
-                        child: Text(
+                        child: AutoSizeText(
                           'Choose Your Registration Number',
+                          maxLines: 1,
                           style: TextStyle(
                             fontSize: 19.0,
                             color: Colors.black,

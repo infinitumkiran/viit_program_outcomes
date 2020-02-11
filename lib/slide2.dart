@@ -3,6 +3,7 @@ import 'package:viitproject/slide1.dart';
 import 'package:viitproject/widgets/values.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:viitproject/widgets/appbar.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class PageTwo extends StatefulWidget {
   @override
@@ -37,8 +38,9 @@ class _PageTwoState extends State<PageTwo> {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.fromLTRB(10.0, 40.0, 0.0, 0.0),
-                        child: Text(
+                        child: AutoSizeText(
                           'Your Registration Number is',
+                          maxLines: 1,
                           style: TextStyle(
                               fontSize: 20.0,
                               fontFamily: 'poppins',
@@ -57,8 +59,9 @@ class _PageTwoState extends State<PageTwo> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(4.0),
                               border: Border.all(color: Colors.purple)),
-                          child: Text(
+                          child: AutoSizeText(
                             rollNO,
+                            maxLines: 1,
                             style: TextStyle(
                                 fontSize: 20.0, fontWeight: FontWeight.w600),
                           ),

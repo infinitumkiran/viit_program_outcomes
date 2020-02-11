@@ -8,7 +8,7 @@ class MyBullet extends StatelessWidget{
       height: _height*0.025,
       width: _width*0.025,
       decoration: new BoxDecoration(
-        color: Colors.indigo,
+        color: Color(0xff673AB7),
         shape: BoxShape.circle,
 
       ),

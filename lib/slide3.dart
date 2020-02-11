@@ -54,58 +54,62 @@ class _PageThreeState extends State<PageThree>{
               child: Center(
 
                   child: Text("0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
-                    style: TextStyle(color: Colors.indigo, fontSize: 22.0,fontWeight:FontWeight.bold),)),
+                    style: TextStyle(color: Colors.black,
+                    fontFamily: 'poppins',fontSize: 22.0,fontWeight:FontWeight.bold),)),
             ),
             SizedBox(height:_height*0.0132555669),
 
 
-               Container(
-                  width: _width*1.85577937,
-                  height: _height*0.795334015,
+               
+                  Container(
+                    width: _width*1.85577937,
+                    height: _height*0.795334015,
 
-                   margin:EdgeInsets.symmetric(horizontal: 30) ,
+                     margin:EdgeInsets.symmetric(horizontal: 30) ,
 
-                   decoration: BoxDecoration(
-                     border: Border.all(
-                       color: Colors.indigo[300],
-                       width: 2,
+                     decoration: BoxDecoration(
+                       border: Border.all(
+                         color: Color(0xff673AB7),
+                         width: 2,
+                       ),
+                       color: Colors.white,
+                       borderRadius: BorderRadius.circular(12),
                      ),
-                     color: Colors.white,
-                     borderRadius: BorderRadius.circular(25),
-                   ),
-                  child: Column(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.fromLTRB(0,10,0,0),
-                          child:Text('PROGRAM OUTCOMES',style: TextStyle(fontSize: 30,color: Colors.indigo,decoration: TextDecoration.underline,)
+                    child: Column(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0,10,0,0),
+                            child:Text('PROGRAM OUTCOMES',style: TextStyle(fontSize: 30,
+                            fontFamily:'poppins',color: Color(0xff673AB7),decoration: TextDecoration.underline,)
+                            ),
+
+                          ),
+                          Expanded(
+                            child: new ListView.builder(
+                                itemCount: tripsList.length,
+                                itemBuilder: (BuildContext context, int index) =>
+                                    buildPO(context, index)),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Button(title:'Next',onPressed:() {
+                                  setdata();
+                                  // Navigate to the second screen using a named route.
+                                  Navigator.pushReplacementNamed(context, '/fourth');
+                                }
+                                )
+                                ),
+                            ],
                           ),
 
-                        ),
-                        Expanded(
-                          child: new ListView.builder(
-                              itemCount: tripsList.length,
-                              itemBuilder: (BuildContext context, int index) =>
-                                  buildPO(context, index)),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Button(title:'Next',onPressed:() {
-                                setdata();
-                                // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(context, '/fourth');
-                              }
-                              )
-                              ),
-                          ],
-                        ),
 
-
-                      ]
-                  )
+                        ]
+                    )
               ),
+               
 
 
           ],
@@ -151,7 +155,7 @@ class _PageThreeState extends State<PageThree>{
                 divisions: 3,
                 label: sliderValues[index].toString(),
                 value: sliderValues[index].toDouble(),
-                activeColor: Colors.indigo,
+                activeColor: Color(0xff673AB7),
                 inactiveColor: Colors.blueGrey,
 
                 onChanged: (newValue) {

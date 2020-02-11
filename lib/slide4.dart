@@ -49,8 +49,10 @@ class _PageFourState extends State<PageFour> {
                   child: Text(
                 "0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
                 style: TextStyle(
-                    color: Colors.indigo,
+                    
+                    color: Colors.black,
                     fontSize: 22.0,
+                    fontFamily: 'poppins',
                     fontWeight: FontWeight.bold),
               )),
             ),
@@ -61,10 +63,10 @@ class _PageFourState extends State<PageFour> {
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.indigo[300],
+                    color:Color(0xff673AB7),
                     width: 2,
                   ),
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
                 child: Column(children: <Widget>[
@@ -73,7 +75,8 @@ class _PageFourState extends State<PageFour> {
                     child: Text('PROGRAM OUTCOMES',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Colors.indigo,
+                          color:Color(0xff673AB7),
+                          fontFamily: 'poppins',
                           decoration: TextDecoration.underline,
                         )),
                   ),
@@ -133,7 +136,7 @@ class _PageFourState extends State<PageFour> {
                 max: 3.0,
                 divisions: 3,
                 value: sliderValues[index].toDouble(),
-                activeColor: Colors.indigo,
+                activeColor: Color(0xff673AB7),
                 inactiveColor: Colors.blueGrey,
                 label: sliderValues[index].toString(),
                 onChanged: (newValue) {

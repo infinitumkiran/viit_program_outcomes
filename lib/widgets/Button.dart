@@ -6,12 +6,19 @@ class Button extends StatelessWidget {
   String title;
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(child: Text(title),
-      onPressed: onPressed,
-      color: Colors.indigo,
-      textColor: Colors.white,
-      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      splashColor: Colors.blueAccent
-    );
+    return RaisedButton(
+          color: Color(0xff673AB7),
+          disabledColor: Colors.grey,
+          splashColor: Colors.blueAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(width: 2),
+          ),
+          child: Text(
+            title,
+            style: TextStyle(color: Colors.white, fontSize: 16),
+          ),
+          onPressed: onPressed,
+        );
   }
 }

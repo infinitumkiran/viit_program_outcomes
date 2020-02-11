@@ -139,7 +139,7 @@ class _PageFiveState extends State<PageFive> {
                 max: 3.0,
                 divisions: 3,
                 value: sliderValues[index].toDouble(),
-                activeColor: Colors.indigo,
+                activeColor: Color(0xff673AB7),
                 inactiveColor: Colors.blueGrey,
                 label: sliderValues[index].toString(),
                 onChanged: (newValue) {

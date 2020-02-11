@@ -21,54 +21,57 @@ class _PageTwoState extends State<PageTwo> {
     return Scaffold(
         appBar: buildAppBar(),
         body: Center(
-          child: Container(
-            height: 0.5*_height,
-            width: 0.5*_width,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.indigo[300],
-                width: 2,
+          child: Card(
+            child: Container(
+              height: 0.5*_height,
+              width: 0.5*_width,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0xff673AB7),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(12),
               ),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.fromLTRB(10.0, 40.0, 0.0,0.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.fromLTRB(10.0, 40.0, 0.0,0.0),
 
-                  child: Text('Your Registration Number is',
-                    style: TextStyle(fontSize: 20.0,
-                        decoration: TextDecoration.underline,
-                        color:Colors.indigo ),),
-                ),
-                Text(rollNO
-                  ,
-                  style: TextStyle(
-                      fontSize: 20.0
+                    child: Text('Your Registration Number is',
+                      style: TextStyle(fontSize: 20.0,
+                        fontFamily: 'poppins',
+                          
+                          color:Colors.black ),),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(30.0),
-                  child:Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Button(title:'Back',onPressed:() {
-                        // Navigate to the second screen using a named route.
-                        Navigator.pushReplacementNamed(context, '/');
-                      }
-                        ,),
-                      SizedBox(
-                        width: 100.0,
-                      ),
-                      Button(title:'Next',onPressed:() {
-                        Navigator.pushReplacementNamed(context, '/third');
-                      }
+                  Text(rollNO
+                    ,
+                    style: TextStyle(
+                        fontSize: 20.0
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(30.0),
+                    child:Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Button(title:'Back',onPressed:() {
+                          // Navigate to the second screen using a named route.
+                          Navigator.pushReplacementNamed(context, '/');
+                        }
+                          ,),
+                        SizedBox(
+                          width: 100.0,
                         ),
-                    ],
+                        Button(title:'Next',onPressed:() {
+                          Navigator.pushReplacementNamed(context, '/third');
+                        }
+                          ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         )

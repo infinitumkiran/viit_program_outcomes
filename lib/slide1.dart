@@ -5,8 +5,6 @@ import 'package:viitproject/widgets/appbar.dart';
 import 'package:viitproject/widgets/Button.dart';
 import 'package:http/http.dart' as http;
 
- 
-
 Map<String, dynamic> responseData = {};
 
 //List<String>[
@@ -56,10 +54,8 @@ class _PageOneState extends State<PageOne> {
               focusColor: Color(0xff673AB7),
               hint: Text(
                 'Select a registration number',
-                style:TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black
-                ),
+                style:
+                    TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
               ), // Not necessary for Option 1
               value: selectedrollno,
               onChanged: (newValue) {
@@ -75,9 +71,7 @@ class _PageOneState extends State<PageOne> {
               }).toList(),
             ),
           );
-        else {
-
-        }
+        else {}
       },
     );
   }
@@ -101,60 +95,66 @@ class _PageOneState extends State<PageOne> {
             child: Container(
               height: 0.5 * _height,
               width: 0.5 * _width,
-              // decoration: BoxDecoration(
-              //   border: Border.all(
-              //     color: Color(0xff673AB7),
-              //     width: 2,
-              //   ),
-              //   borderRadius: BorderRadius.circular(12),
-              // ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.fromLTRB(10.0, 40.0, 0.0, 0.0),
-                    child: Text(
-                      'Choose Your Registration Number',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
-                        fontFamily: 'poppins',
-                      ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    SizedBox(
+                      height: _height * 0.01,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 40.0),
-                      width: 240.0,
-                      height: 40.0,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(4.0),
-                          border: Border.all(color: Color(0xff673AB7))),
-                      child: dropdownButton(),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.all(30.0),
-                        child: Button(
-                          title: 'Next',
-                          onPressed: () {
-                            rollNO = selectedrollno;
-                            print(rollNO);
-                            if (rollNO != null) {
-                              Navigator.pushReplacementNamed(
-                                  context, '/second');
-                            }
-                          },
+                    Container(
+                      child: Text(
+                        'Choose Your Registration Number',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.black,
+                          fontFamily: 'poppins',
                         ),
                       ),
-                    ],
-                  )
-                ],
+                    ),
+                    Divider(
+                      height: 8,
+                      thickness: 2,
+                      color: Theme.of(context).accentColor,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 120),
+                      child: Container(
+                        // margin: EdgeInsets.symmetric(horizontal: 40.0),
+                        width: 240.0,
+                        height: 40.0,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(4.0),
+                            border: Border.all(color: Color(0xff673AB7))),
+                        child: dropdownButton(),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 120.0),
+                          child: Container(
+                            margin: EdgeInsets.all(30.0),
+                            child: Button(
+                              title: 'Next',
+                              onPressed: () {
+                                rollNO = selectedrollno;
+                                print(rollNO);
+                                if (rollNO != null) {
+                                  Navigator.pushReplacementNamed(
+                                      context, '/second');
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

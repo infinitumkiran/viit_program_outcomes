@@ -50,6 +50,7 @@ class _PageOneState extends State<PageOne> {
         return false;
       }),
       builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done)
         return DropdownButtonHideUnderline(
           child: DropdownButton(
             focusColor: Color(0xff673AB7),
@@ -73,6 +74,9 @@ class _PageOneState extends State<PageOne> {
             }).toList(),
           ),
         );
+        else{
+            return Center(child: CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Color(0xff673AB7)),));
+        }
       },
     );
   }

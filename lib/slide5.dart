@@ -123,7 +123,7 @@ class _PageFiveState extends State<PageFive> {
       margin: EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(6.0),
           child: Row(
             children: <Widget>[
               Container(child: new MyBullet()),
@@ -133,7 +133,7 @@ class _PageFiveState extends State<PageFive> {
               Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 22.0),
+                  style: new TextStyle(fontSize: 18.0),
                   maxLines: 3,
                 ),
 

@@ -82,6 +82,7 @@ class _PageTwoState extends State<PageTwo> {
                             SizedBox(
                               width: 100.0,
                             ),
+                            
                             Button(
                                 title: 'Next',
                                 onPressed: () {

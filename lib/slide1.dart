@@ -6,7 +6,6 @@ import 'package:viitproject/widgets/Button.dart';
 import 'package:http/http.dart' as http;
 import 'package:auto_size_text/auto_size_text.dart';
 
-
 Map<String, dynamic> responseData = {};
 
 //List<String>[
@@ -50,32 +49,38 @@ class _PageOneState extends State<PageOne> {
         return false;
       }),
       builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.done)
-        return DropdownButtonHideUnderline(
-          child: DropdownButton(
-            focusColor: Color(0xff673AB7),
-            hint: AutoSizeText(
-              'Select a registration number',
-              style:
-                  TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-                  maxLines: 1,
-            ), // Not necessary for Option 1
-            value: selectedrollno,
-            onChanged: (newValue) {
-              setState(() {
-                selectedrollno = newValue;
-              });
-            },
-            items: regNumbers.map<DropdownMenuItem<String>>((String value) {
-              return new DropdownMenuItem<String>(
-                value: value,
-                child: new AutoSizeText(value,maxLines: 1,),
-              );
-            }).toList(),
-          ),
-        );
-        else{
-            return Center(child: CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Color(0xff673AB7)),));
+        if (snapshot.connectionState == ConnectionState.done)
+          return DropdownButtonHideUnderline(
+            child: DropdownButton(
+              focusColor: Color(0xff673AB7),
+              hint: AutoSizeText(
+                'Select a registration number',
+                style:
+                    TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
+                maxLines: 1,
+              ), // Not necessary for Option 1
+              value: selectedrollno,
+              onChanged: (newValue) {
+                setState(() {
+                  selectedrollno = newValue;
+                });
+              },
+              items: regNumbers.map<DropdownMenuItem<String>>((String value) {
+                return new DropdownMenuItem<String>(
+                  value: value,
+                  child: new AutoSizeText(
+                    value,
+                    maxLines: 1,
+                  ),
+                );
+              }).toList(),
+            ),
+          );
+        else {
+          return Center(
+              child: CircularProgressIndicator(
+            valueColor: new AlwaysStoppedAnimation<Color>(Color(0xff673AB7)),
+          ));
         }
       },
     );
@@ -124,37 +129,40 @@ class _PageOneState extends State<PageOne> {
                       thickness: 2,
                       color: Color(0xff673AB7),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 100),
-                      child: Container(
-                        // margin: EdgeInsets.symmetric(horizontal: 40.0),
-                        width: 240.0,
-                        height: 40.0,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(4.0),
-                            border: Border.all(color: Color(0xff673AB7))),
-                        child: dropdownButton(),
-                      ),
+                    Flexible(
+                      
+                     
+                        child: Center(
+                          child: Container(
+                            // margin: EdgeInsets.symmetric(horizontal: 40.0),
+                            width: 240.0,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(4.0),
+                                border: Border.all(color: Color(0xff673AB7))),
+                            child: dropdownButton(),
+                          ),
+                        ),
+                      
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 40.0),
-                          child: Container(
-                            margin: EdgeInsets.all(30.0),
-                            child: Button(
-                              title: 'Next',
-                              onPressed: () {
-                                rollNO = selectedrollno;
-                                print(rollNO);
-                                if (rollNO != null) {
-                                  Navigator.pushReplacementNamed(
-                                      context, '/second');
-                                }
-                              },
-                            ),
+                        Spacer(
+                          flex: 2,
+                        ),
+                        Flexible(
+                          child: Button(
+                            title: 'Next',
+                            onPressed: () {
+                              rollNO = selectedrollno;
+                              print(rollNO);
+                              if (rollNO != null) {
+                                Navigator.pushReplacementNamed(
+                                    context, '/second');
+                              }
+                            },
                           ),
                         ),
                       ],

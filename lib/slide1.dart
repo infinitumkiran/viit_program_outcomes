@@ -23,24 +23,21 @@ class _PageOneState extends State<PageOne> {
   String get selectedRollNumber {
     return selectedrollno;
   }
-   void getdata() {
 
-   http
-          .get(
-              'https://viit-po-pso-feedback.firebaseio.com/Feedback/selectedrollno.json')
-          .then<bool>((http.Response response) {
-        var rollJson = jsonDecode(response.body);
-        print(response.body);
+  void getdata() {
+    http
+        .get(
+            'https://viit-po-pso-feedback.firebaseio.com/Feedback/selectedrollno.json')
+        .then<bool>((http.Response response) {
+      var rollJson = jsonDecode(response.body);
+      print(response.body);
 
-
-
-        return true;
-      }).catchError((error) {
-        print('There is an error');
-        return false;
-      });
+      return true;
+    }).catchError((error) {
+      print('There is an error');
+      return false;
+    });
   }
-
 
   // String selectedNumber = PageOne.selectedNum;
   @override
@@ -148,21 +145,18 @@ class _PageOneState extends State<PageOne> {
                       color: Color(0xff673AB7),
                     ),
                     Flexible(
-                      
-                     
-                        child: Center(
-                          child: Container(
-                            // margin: EdgeInsets.symmetric(horizontal: 40.0),
-                            width: 240.0,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(4.0),
-                                border: Border.all(color: Color(0xff673AB7))),
-                            child: dropdownButton(),
-                          ),
+                      child: Center(
+                        child: Container(
+                          // margin: EdgeInsets.symmetric(horizontal: 40.0),
+                          width: 240.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(4.0),
+                              border: Border.all(color: Color(0xff673AB7))),
+                          child: dropdownButton(),
                         ),
-                      
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

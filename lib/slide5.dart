@@ -20,7 +20,6 @@ class _PageFiveState extends State<PageFive> {
   List<double> sliderValues = [0, 0];
 
   void setdata() {
-  
     feedbackValues[12] = sliderValues[0] as int;
     feedbackValues[13] = sliderValues[1] as int;
     http
@@ -35,8 +34,7 @@ class _PageFiveState extends State<PageFive> {
       return false;
     });
     http
-        .put(
-            'https://viit-po-pso-feedback.firebaseio.com/entries/$rollNO.json',
+        .put('https://viit-po-pso-feedback.firebaseio.com/entries/$rollNO.json',
             body: json.encode(entry))
         .then((http.Response response) {
       print(jsonEncode(entry));
@@ -81,7 +79,8 @@ class _PageFiveState extends State<PageFive> {
               child: Container(
                   width: _width * 1.85577937,
                   height: _height * 0.795334015,
-                  margin: EdgeInsets.symmetric(horizontal: _width*0.0132555673),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: _width * 0.0132555673),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Color(0xff673AB7),
@@ -92,9 +91,10 @@ class _PageFiveState extends State<PageFive> {
                   ),
                   child: Column(children: <Widget>[
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
+                      margin:
+                          EdgeInsets.fromLTRB(0, _width * 0.0132555673, 0, 0),
                       child: AutoSizeText('PROGRAM SPECIFIC OUTCOMES',
-                      maxLines: 1,
+                          maxLines: 1,
                           style: TextStyle(
                             fontSize: 30,
                             fontFamily: 'poppins',
@@ -118,7 +118,8 @@ class _PageFiveState extends State<PageFive> {
                               onPressed: () {
                                 setdata();
                                 // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(context, '/sixth');
+                                Navigator.pushReplacementNamed(
+                                    context, '/sixth');
                               }),
                         ),
                       ],
@@ -144,11 +145,10 @@ class _PageFiveState extends State<PageFive> {
               Container(
                 child: Text('   '),
               ),
-              Flexible(
+              Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 17.0),
-                  maxLines: 3,
+                  style: new TextStyle(fontSize: 16.0),
                 ),
 
                 //Spacer(),

@@ -145,7 +145,7 @@ class _WelcomePageState extends State<WelcomePage> {
           ),
           Center(
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: _height / 5),
+              padding: EdgeInsets.symmetric(vertical: _height / 7),
               child: Column(
                 children: <Widget>[
                   AutoSizeText('Login',

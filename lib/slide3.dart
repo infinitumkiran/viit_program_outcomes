@@ -63,7 +63,8 @@ class _PageThreeState extends State<PageThree> {
               child: Container(
                   width: _width * 1.85577937,
                   height: _height * 0.795334015,
-                  margin: EdgeInsets.symmetric(horizontal: _width*0.039766702),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: _width * 0.039766702),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Color(0xff673AB7),
@@ -74,7 +75,8 @@ class _PageThreeState extends State<PageThree> {
                   ),
                   child: Column(children: <Widget>[
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
+                      margin:
+                          EdgeInsets.fromLTRB(0, _width * 0.0132555673, 0, 0),
                       child: AutoSizeText('PROGRAM OUTCOMES',
                           maxLines: 1,
                           style: TextStyle(
@@ -126,11 +128,10 @@ class _PageThreeState extends State<PageThree> {
               Container(
                 child: Text('   '),
               ),
-              Flexible(
+              Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 17.0),
-                 
+                  style: new TextStyle(fontSize: 16.0),
                 ),
 
                 //Spacer(),

@@ -52,8 +52,8 @@ class _PageFourState extends State<PageFour> {
                 maxLines: 1,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 22.0,
                     fontFamily: 'poppins',
+                    fontSize: 22.0,
                     fontWeight: FontWeight.bold),
               )),
             ),
@@ -62,24 +62,26 @@ class _PageFourState extends State<PageFour> {
               child: Container(
                   width: _width * 1.85577937,
                   height: _height * 0.795334015,
-                  margin: EdgeInsets.symmetric(horizontal:_width*0.0132555673),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: _width * 0.039766702),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Color(0xff673AB7),
                       width: 2,
                     ),
-                    borderRadius: BorderRadius.circular(12),
                     color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(children: <Widget>[
                     Container(
-                      margin: EdgeInsets.fromLTRB(0,_width*0.0132555673, 0, 0),
+                      margin:
+                          EdgeInsets.fromLTRB(0, _width * 0.0132555673, 0, 0),
                       child: AutoSizeText('PROGRAM OUTCOMES',
-                      maxLines: 1,
+                          maxLines: 1,
                           style: TextStyle(
                             fontSize: 30,
-                            color: Color(0xff673AB7),
                             fontFamily: 'poppins',
+                            color: Color(0xff673AB7),
                             decoration: TextDecoration.underline,
                           )),
                     ),
@@ -93,15 +95,15 @@ class _PageFourState extends State<PageFour> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Button(
-                              title: 'Next',
-                              onPressed: () {
-                                setdata();
-                                // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(context, '/fifth');
-                              }),
-                        ),
+                            padding: const EdgeInsets.all(16.0),
+                            child: Button(
+                                title: 'Next',
+                                onPressed: () {
+                                  setdata();
+                                  // Navigate to the second screen using a named route.
+                                  Navigator.pushReplacementNamed(
+                                      context, '/fourth');
+                                })),
                       ],
                     ),
                   ])),
@@ -125,11 +127,10 @@ class _PageFourState extends State<PageFour> {
               Container(
                 child: Text('   '),
               ),
-              Flexible(
+              Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 17.0),
-                 
+                  style: new TextStyle(fontSize: 16.0),
                 ),
 
                 //Spacer(),
@@ -138,10 +139,10 @@ class _PageFourState extends State<PageFour> {
                 min: 0.0,
                 max: 3.0,
                 divisions: 3,
+                label: sliderValues[index].toString(),
                 value: sliderValues[index].toDouble(),
                 activeColor: Color(0xff673AB7),
                 inactiveColor: Colors.blueGrey,
-                label: sliderValues[index].toString(),
                 onChanged: (newValue) {
                   setState(() {
                     sliderValues[index] = newValue.toDouble();

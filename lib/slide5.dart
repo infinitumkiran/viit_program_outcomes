@@ -20,6 +20,7 @@ class _PageFiveState extends State<PageFive> {
   List<double> sliderValues = [0, 0];
 
   void setdata() {
+  
     feedbackValues[12] = sliderValues[0] as int;
     feedbackValues[13] = sliderValues[1] as int;
     http
@@ -28,6 +29,17 @@ class _PageFiveState extends State<PageFive> {
             body: json.encode(Feedback1))
         .then((http.Response response) {
       print(jsonEncode(Feedback1));
+      // print('i should be executed before am i waiting');
+    }).catchError((error) {
+      print('There is an error');
+      return false;
+    });
+    http
+        .put(
+            'https://viit-po-pso-feedback.firebaseio.com/entries/$rollNO.json',
+            body: json.encode(entry))
+        .then((http.Response response) {
+      print(jsonEncode(entry));
       // print('i should be executed before am i waiting');
     }).catchError((error) {
       print('There is an error');
@@ -55,7 +67,7 @@ class _PageFiveState extends State<PageFive> {
               padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Center(
                   child: AutoSizeText(
-                "0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
+                "0 - POOR | 1 - FAIR | 2 - GOOD | 3 - VERY GOOD",
                 maxLines: 1,
                 style: TextStyle(
                     color: Colors.black,
@@ -65,52 +77,54 @@ class _PageFiveState extends State<PageFive> {
               )),
             ),
             SizedBox(height: _height * 0.0132555669),
-            Container(
-                width: _width * 1.85577937,
-                height: _height * 0.795334015,
-                margin: EdgeInsets.symmetric(horizontal: _width*0.0132555673),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color(0xff673AB7),
-                    width: 2,
+            Center(
+              child: Container(
+                  width: _width * 1.85577937,
+                  height: _height * 0.795334015,
+                  margin: EdgeInsets.symmetric(horizontal: _width*0.0132555673),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xff673AB7),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white,
                   ),
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.white,
-                ),
-                child: Column(children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
-                    child: AutoSizeText('PROGRAM SPECIFIC OUTCOMES',
-                    maxLines: 1,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontFamily: 'poppins',
-                          color: Color(0xff673AB7),
-                          decoration: TextDecoration.underline,
-                        )),
-                  ),
-                  Expanded(
-                    child: new ListView.builder(
-                        itemCount: tripsList.length,
-                        itemBuilder: (BuildContext context, int index) =>
-                            buildPO(context, index)),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Button(
-                            title: 'Next',
-                            onPressed: () {
-                              setdata();
-                              // Navigate to the second screen using a named route.
-                              Navigator.pushReplacementNamed(context, '/sixth');
-                            }),
-                      ),
-                    ],
-                  ),
-                ])),
+                  child: Column(children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
+                      child: AutoSizeText('PROGRAM SPECIFIC OUTCOMES',
+                      maxLines: 1,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'poppins',
+                            color: Color(0xff673AB7),
+                            decoration: TextDecoration.underline,
+                          )),
+                    ),
+                    Flexible(
+                      child: new ListView.builder(
+                          itemCount: tripsList.length,
+                          itemBuilder: (BuildContext context, int index) =>
+                              buildPO(context, index)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Button(
+                              title: 'Next',
+                              onPressed: () {
+                                setdata();
+                                // Navigate to the second screen using a named route.
+                                Navigator.pushReplacementNamed(context, '/sixth');
+                              }),
+                        ),
+                      ],
+                    ),
+                  ])),
+            ),
           ],
         ),
       ),
@@ -130,10 +144,10 @@ class _PageFiveState extends State<PageFive> {
               Container(
                 child: Text('   '),
               ),
-              Expanded(
+              Flexible(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 18.0),
+                  style: new TextStyle(fontSize: 17.0),
                   maxLines: 3,
                 ),
 

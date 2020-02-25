@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:viitproject/main.dart';
 class SubmissionAlert extends StatelessWidget {
   final String title;
 

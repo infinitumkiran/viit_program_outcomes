@@ -23,6 +23,24 @@ class _PageOneState extends State<PageOne> {
   String get selectedRollNumber {
     return selectedrollno;
   }
+   void getdata() {
+
+   http
+          .get(
+              'https://viit-po-pso-feedback.firebaseio.com/Feedback/selectedrollno.json')
+          .then<bool>((http.Response response) {
+        var rollJson = jsonDecode(response.body);
+        print(response.body);
+
+
+
+        return true;
+      }).catchError((error) {
+        print('There is an error');
+        return false;
+      });
+  }
+
 
   // String selectedNumber = PageOne.selectedNum;
   @override
@@ -156,6 +174,7 @@ class _PageOneState extends State<PageOne> {
                           child: Button(
                             title: 'Next',
                             onPressed: () {
+                              getdata();
                               rollNO = selectedrollno;
                               print(rollNO);
                               if (rollNO != null) {

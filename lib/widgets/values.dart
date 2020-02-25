@@ -1,6 +1,7 @@
 
 String rollNO;
 List<int>feedbackValues=[0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 Map<String, dynamic> Feedback1 = {
       'PO1': feedbackValues[0],
       'PO2': feedbackValues[1],
@@ -16,6 +17,9 @@ Map<String, dynamic> Feedback1 = {
       'PO12': feedbackValues[11],
       'PSO1': feedbackValues[12],
       'PSO2':feedbackValues[13],
+};
+Map<String,String>entry={
+  'entry': '1',
 };
   
 

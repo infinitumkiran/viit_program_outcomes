@@ -52,18 +52,19 @@ class _PageTwoState extends State<PageTwo> {
                         thickness: 2,
                         color: Color(0xff673AB7),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 80, bottom: 50),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(4.0),
-                              border: Border.all(color: Colors.purple)),
-                          child: AutoSizeText(
-                            rollNO,
-                            maxLines: 1,
-                            style: TextStyle(
-                                fontSize: 20.0, fontWeight: FontWeight.w600),
+                      Flexible(
+                        child: Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(4.0),
+                                border: Border.all(color: Colors.purple)),
+                            child: AutoSizeText(
+                              rollNO,
+                              maxLines: 1,
+                              style: TextStyle(
+                                  fontSize: 20.0, fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ),
                       ),
@@ -72,23 +73,27 @@ class _PageTwoState extends State<PageTwo> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Button(
-                              title: 'Back',
-                              onPressed: () {
-                                // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(context, '/');
-                              },
-                            ),
-                            SizedBox(
-                              width: 100.0,
-                            ),
-                            
-                            Button(
-                                title: 'Next',
+                            Flexible(
+                              child: Button(
+                                title: 'Back',
                                 onPressed: () {
+                                  // Navigate to the second screen using a named route.
                                   Navigator.pushReplacementNamed(
-                                      context, '/third');
-                                }),
+                                      context, '/one');
+                                },
+                              ),
+                            ),
+                            Spacer(
+                              flex: 2,
+                            ),
+                            Flexible(
+                              child: Button(
+                                  title: 'Next',
+                                  onPressed: () {
+                                    Navigator.pushReplacementNamed(
+                                        context, '/third');
+                                  }),
+                            ),
                           ],
                         ),
                       ),

@@ -49,7 +49,7 @@ class _PageThreeState extends State<PageThree> {
               padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Center(
                   child: AutoSizeText(
-                "0 - POOR | 1 - AVERAGE | 2 - GOOD | 3 - EXCELLENT",
+                "0 - POOR | 1 - FAIR | 2 - GOOD | 3 - VERY GOOD",
                 maxLines: 1,
                 style: TextStyle(
                     color: Colors.black,
@@ -59,52 +59,54 @@ class _PageThreeState extends State<PageThree> {
               )),
             ),
             SizedBox(height: _height * 0.0132555669),
-            Container(
-                width: _width * 1.85577937,
-                height: _height * 0.795334015,
-                margin: EdgeInsets.symmetric(horizontal: _width*0.039766702),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color(0xff673AB7),
-                    width: 2,
+            Center(
+              child: Container(
+                  width: _width * 1.85577937,
+                  height: _height * 0.795334015,
+                  margin: EdgeInsets.symmetric(horizontal: _width*0.039766702),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xff673AB7),
+                      width: 2,
+                    ),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Column(children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
-                    child: AutoSizeText('PROGRAM OUTCOMES',
-                        maxLines: 1,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontFamily: 'poppins',
-                          color: Color(0xff673AB7),
-                          decoration: TextDecoration.underline,
-                        )),
-                  ),
-                  Expanded(
-                    child: new ListView.builder(
-                        itemCount: tripsList.length,
-                        itemBuilder: (BuildContext context, int index) =>
-                            buildPO(context, index)),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Button(
-                              title: 'Next',
-                              onPressed: () {
-                                setdata();
-                                // Navigate to the second screen using a named route.
-                                Navigator.pushReplacementNamed(
-                                    context, '/fourth');
-                              })),
-                    ],
-                  ),
-                ])),
+                  child: Column(children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, _width*0.0132555673, 0, 0),
+                      child: AutoSizeText('PROGRAM OUTCOMES',
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'poppins',
+                            color: Color(0xff673AB7),
+                            decoration: TextDecoration.underline,
+                          )),
+                    ),
+                    Flexible(
+                      child: new ListView.builder(
+                          itemCount: tripsList.length,
+                          itemBuilder: (BuildContext context, int index) =>
+                              buildPO(context, index)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Button(
+                                title: 'Next',
+                                onPressed: () {
+                                  setdata();
+                                  // Navigate to the second screen using a named route.
+                                  Navigator.pushReplacementNamed(
+                                      context, '/fourth');
+                                })),
+                      ],
+                    ),
+                  ])),
+            ),
           ],
         ),
       ),
@@ -124,11 +126,11 @@ class _PageThreeState extends State<PageThree> {
               Container(
                 child: Text('   '),
               ),
-              Expanded(
+              Flexible(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 18.0),
-                  maxLines: 3,
+                  style: new TextStyle(fontSize: 17.0),
+                 
                 ),
 
                 //Spacer(),

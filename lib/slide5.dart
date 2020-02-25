@@ -36,8 +36,8 @@ class _PageFiveState extends State<PageFive> {
   }
 
   final List<PO> tripsList = [
-    PO("Ability to design and develop efficient software-based systems using core computer science and engineering principles, algorithms and problem-solving techniques"),
-    PO("Ability to apply advanced technology concepts including mobile computing, cloud computing, network security and big data to provide innovative software solutions"),
+    PO("Are you able to design and develop efficient software-based systems using core computer science and engineering principles, algorithms and problem-solving techniques"),
+    PO("Are you able to apply advanced technology concepts including mobile computing, cloud computing, network security and big data to provide innovative software solutions"),
   ];
 
   @override

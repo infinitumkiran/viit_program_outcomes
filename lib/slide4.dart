@@ -25,12 +25,12 @@ class _PageFourState extends State<PageFour> {
   }
 
   final List<PO> tripsList = [
-    PO("Understand the impact of Computer Science and Engineering solutions on society & eco-friendly environment and the need for sustainable development.(Environment and sustainability)"),
-    PO("Follow Professional ethics and commit to responsibilities & norms of the engineering practices. (Ethics)"),
-    PO("Contribute effectively as an individual, member or leader of intra and inter-disciplinary teams/working environment.(Individual and team work)"),
-    PO("Communicate effectively both in verbal and written forms with engineers/technocrats in particular and with society at large and give/receive clear instructions. (Communication)"),
-    PO("Apply the principles of engineering and management as a member or leader to manage projects in multidisciplinary environment. (Project management and finance)"),
-    PO("Recognize the necessity and pursue independent & life-long learning to keep abreast of technological changes. (Life-long learning)."),
+    PO("Are you able to Understand the impact of Computer Science and Engineering solutions on society & eco-friendly environment and the need for sustainable development.(Environment and sustainability)"),
+    PO("Are you able to Follow Professional ethics and commit to responsibilities & norms of the engineering practices. (Ethics)"),
+    PO("Are you able to Contribute effectively as an individual, member or leader of intra and inter-disciplinary teams/working environment.(Individual and team work)"),
+    PO("Are you able to Communicate effectively both in verbal and written forms with engineers/technocrats in particular and with society at large and give/receive clear instructions. (Communication)"),
+    PO("Are you able to Apply the principles of engineering and management as a member or leader to manage projects in multidisciplinary environment. (Project management and finance)"),
+    PO("Are you able to Recognize the necessity and pursue independent & life-long learning to keep abreast of technological changes. (Life-long learning)."),
   ];
 
   @override

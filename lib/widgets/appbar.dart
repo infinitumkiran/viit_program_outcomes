@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 AppBar buildAppBar(){
   return AppBar(
@@ -18,7 +19,8 @@ AppBar buildAppBar(){
           width: 10,
           height: 10,
         ),
-        Text('PO/PSO VIIT FEEDBACK FORM',style: TextStyle(fontSize: 28.0),)
+        AutoSizeText('Department of Computer Science and Engineering',
+        maxLines: 1,)
       ],
     ),
   );

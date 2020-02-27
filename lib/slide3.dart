@@ -131,7 +131,8 @@ class _PageThreeState extends State<PageThree> {
               Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 16.0),
+                  style: new TextStyle(fontSize: 16.0,fontFamily: 'poppins')
+                  
                 ),
 
                 //Spacer(),

@@ -18,20 +18,22 @@ class PageOne extends StatefulWidget {
 
 class _PageOneState extends State<PageOne> {
   static String selectedrollno;
-
+  static bool go = false;
+  var entry;
   List<String> regNumbers = [];
   String get selectedRollNumber {
     return selectedrollno;
   }
 
   void getdata() {
+    print("Test");
     http
         .get(
-            'https://viit-po-pso-feedback.firebaseio.com/Feedback/selectedrollno.json')
-        .then<bool>((http.Response response) {
-      var rollJson = jsonDecode(response.body);
-      print(response.body);
-
+            'https://viit-po-pso-feedback.firebaseio.com/Feedback/$selectedrollno.json')
+        .then((http.Response response) {
+      entry = jsonDecode(response.body);
+      print(entry);
+      print('hi');
       return true;
     }).catchError((error) {
       print('There is an error');
@@ -169,9 +171,10 @@ class _PageOneState extends State<PageOne> {
                             title: 'Next',
                             onPressed: () {
                               getdata();
+
                               rollNO = selectedrollno;
                               print(rollNO);
-                              if (rollNO != null) {
+                              if ((rollNO != null)&&(entry.toString() ==  "null")) {
                                 Navigator.pushReplacementNamed(
                                     context, '/second');
                               }

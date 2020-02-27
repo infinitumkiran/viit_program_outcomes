@@ -33,16 +33,7 @@ class _PageFiveState extends State<PageFive> {
       print('There is an error');
       return false;
     });
-    http
-        .put('https://viit-po-pso-feedback.firebaseio.com/entries/$rollNO.json',
-            body: json.encode(entry))
-        .then((http.Response response) {
-      print(jsonEncode(entry));
-      // print('i should be executed before am i waiting');
-    }).catchError((error) {
-      print('There is an error');
-      return false;
-    });
+  
   }
 
   final List<PO> tripsList = [
@@ -148,7 +139,7 @@ class _PageFiveState extends State<PageFive> {
               Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 16.0),
+                  style: new TextStyle(fontSize: 16.0,fontFamily: 'poppins'),
                 ),
 
                 //Spacer(),

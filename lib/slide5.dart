@@ -27,7 +27,7 @@ class _PageFiveState extends State<PageFive> {
             'https://viit-po-pso-feedback.firebaseio.com/Feedback/$rollNO.json',
             body: json.encode(Feedback1))
         .then((http.Response response) {
-      print(jsonEncode(Feedback1));
+     
       // print('i should be executed before am i waiting');
     }).catchError((error) {
       print('There is an error');
@@ -139,7 +139,7 @@ class _PageFiveState extends State<PageFive> {
               Expanded(
                 child: Text(
                   trip.title,
-                  style: new TextStyle(fontSize: 16.0,fontFamily: 'poppins'),
+                  style: new TextStyle(fontSize: 16.0,fontFamily: 'poppins  '),
                 ),
 
                 //Spacer(),

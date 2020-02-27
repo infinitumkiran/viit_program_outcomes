@@ -90,8 +90,13 @@ class _PageTwoState extends State<PageTwo> {
                               child: Button(
                                   title: 'Next',
                                   onPressed: () {
+                                   
+                                    if(restrict==null)
                                     Navigator.pushReplacementNamed(
                                         context, '/third');
+                                    else
+                                    Navigator.pushReplacementNamed(
+                                        context, '/sixth');
                                   }),
                             ),
                           ],

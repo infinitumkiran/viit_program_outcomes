@@ -18,22 +18,22 @@ class PageOne extends StatefulWidget {
 
 class _PageOneState extends State<PageOne> {
   static String selectedrollno;
-  static bool go = false;
-  var entry;
+  
+ static var entry;
   List<String> regNumbers = [];
   String get selectedRollNumber {
     return selectedrollno;
   }
 
-  void getdata() {
+  Future getdata() async{
     print("Test");
-    http
+   await http
         .get(
             'https://viit-po-pso-feedback.firebaseio.com/Feedback/$selectedrollno.json')
         .then((http.Response response) {
-      entry = jsonDecode(response.body);
-      print(entry);
-      print('hi');
+      _PageOneState.entry = jsonDecode(response.body);
+      
+       restrict=jsonDecode(response.body);
       return true;
     }).catchError((error) {
       print('There is an error');
@@ -55,7 +55,7 @@ class _PageOneState extends State<PageOne> {
               'https://viit-po-pso-feedback.firebaseio.com/Details/RollNo.json')
           .then<bool>((http.Response response) {
         var rollJson = jsonDecode(response.body);
-        print(response.body);
+        
 
         regNumbers = List.from(rollJson);
 //       // print(_rollNumbers);
@@ -78,6 +78,7 @@ class _PageOneState extends State<PageOne> {
               ), // Not necessary for Option 1
               value: selectedrollno,
               onChanged: (newValue) {
+               
                 setState(() {
                   selectedrollno = newValue;
                 });
@@ -106,8 +107,7 @@ class _PageOneState extends State<PageOne> {
   Widget build(BuildContext context) {
     final _height = MediaQuery.of(context).size.height;
     final _width = MediaQuery.of(context).size.height;
-    print(_height);
-    print(_width);
+    
     return Scaffold(
         appBar: buildAppBar(),
         body: Center(
@@ -170,11 +170,11 @@ class _PageOneState extends State<PageOne> {
                           child: Button(
                             title: 'Next',
                             onPressed: () {
-                              getdata();
+                             getdata();
 
                               rollNO = selectedrollno;
-                              print(rollNO);
-                              if ((rollNO != null)&&(entry.toString() ==  "null")) {
+                          
+                              if ((rollNO != null)&&(_PageOneState.entry ==  null)) {
                                 Navigator.pushReplacementNamed(
                                     context, '/second');
                               }

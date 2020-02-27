@@ -26,7 +26,7 @@ class _WelcomePageState extends State<WelcomePage> {
         .get('https://viit-po-pso-feedback.firebaseio.com/otk.json')
         .then((http.Response value) {
       responseData = json.decode(value.body);
-      print(responseData['key']);
+     
       return responseData['key'].toString();
     });
   }
